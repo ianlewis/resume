@@ -39,6 +39,11 @@ node_modules/.installed: package.json package-lock.json
 	npm ci
 	touch node_modules/.installed
 
+
+Ian_M_Lewis_Resume.pdf: resume.tex resume.cls  ## Create resume PDF
+	pdflatex resume.tex
+	mv resume.pdf Ian_M_Lewis_Resume.pdf
+
 ## Tools
 #####################################################################
 
@@ -121,3 +126,14 @@ yamllint: ## Runs the yamllint linter.
 			extraargs="-f github"; \
 		fi; \
 		yamllint --strict -c .yamllint.yaml . $$extraargs
+
+## Maintenance
+#####################################################################
+
+clean:
+	rm -f *.aux
+	rm -f *.toc
+	rm -f *.log
+	rm -f *.dvi
+	rm -f *.pdf
+	rm -f *.out

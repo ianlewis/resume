@@ -3,3 +3,11 @@
 
 # Dependency directories (remove the comment below to include it)
 node_modules/
+
+# Tex generate files.
+*.aux
+*.toc
+*.log
+*.dvi
+*.pdf
+*.out

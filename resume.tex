@@ -1,0 +1,447 @@
+% Copyright 2023 Ian Lewis
+
+\documentclass{resume}
+
+\renewcommand{\categoryfont}{\bf}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{1in}
+\addtolength{\textwidth}{1.5in}
+\setlength{\topmargin}{-0.7in}
+
+\renewcommand{\labelcitem}{}
+\renewcommand{\labelitemi}{$\cdot$}
+
+% Use fancy page style so that I can have my name in the header
+% as well as page numbers because the resume is long.
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+% Remove header rule
+\renewcommand{\headrulewidth}{0pt}
+% Add page number to the center of the footer.
+\cfoot{\thepage}
+
+\author{Ian M. Lewis}
+\address{Nationality: U.S.A.\\Currently holding a U.S. passport and Japanese permanent residency\\English: Native\\Japanese: Fluent (reading/writing/spoken)}{ianlewis@gmail.com\\http://www.ianlewis.org/}
+
+\begin{document}
+
+\maketitle
+
+\begin{category}{Profile}
+
+\citembullet{}Well rounded engineer with over 20 years of development
+    experience.  Experience in a wide range of areas including supply chain
+    security, web servers, web frontends, backends and microservice
+    architecture, cloud and infrastructure tooling, container runtimes, systems
+    development, and mobile development. A resident of Japan since 2006. Active
+    member of the Kubernetes and Container Security communities. Interested in
+    working on high impact projects for highly technical global companies.
+    Interests include container security, supply chain security, infrastructure
+    tooling, systems programming, foreign language and culture, and travel.
+
+\end{category}
+
+\begin{category}{Qualifications}
+\citem{Skills} Container Security, Systems design, Linux systems programming
+\citem{Programming Languages} Go, Python, JavaScript/TypeScript, Java, C++, PHP
+\citem{Platforms} Google Cloud Platform, Amazon Web Services, Kubernetes, Containerd
+\citem{Databases} MySQL, PostgreSQL, Redis, Bigtable, Spanner
+\citem{Languages} Native English, Fluent Japanese (Japanese Language Proficiency Test N-1 --- 2013/12)
+\citem{Community} Open Source Project Management \& Governance
+\end{category}
+
+\begin{category}{Work Experience}
+    \citem{\large Senior Developer Advocate --- Google Cloud Platform} (Jan 2015--Present)\\Google. Tokyo, Japan\\
+
+    Led Cloud-Native and Supply Chain Security Advocacy efforts.
+
+    \begin{itemize}
+
+        \citem{Supply-chain Levels for Software Artifacts (SLSA)}
+
+        \begin{itemize}
+
+            \item Led development of the generic SLSA provenance generator for
+                GitHub Actions.
+
+            \item Led development of the Node.js SLSA builder for GitHub
+                Actions in partnership with GitHub and integrating with the npm
+                official registry.
+
+            \item Contributed key features to underlying SLSA generation
+                framework and slsa-verifier.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \begin{itemize}
+
+        \citem{gVisor}
+
+        \begin{itemize}
+
+            \item Led the open-source gVisor project launch including demos,
+                videos, and documentation. Managed open-source contributions on
+                an ongoing basis.
+
+            \item Made major improvements to gVisor in the areas of Linux
+                kernel compatibility, OCI runtime implementation, and
+                Kubernetes integrations including the minikube addon,
+                containerd shim, and knative.
+
+            \item Played a critical role in launching and establishing gVisor
+                as a pivotal Google open source project and establishing GKE
+                Sandbox as a key capability of Google Kubernetes Engine.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \begin{itemize}
+
+        \citem{Product Adoption}
+
+        \begin{itemize}
+
+            \item Supported launches of numerous products including GKE
+                Sandbox, Anthos Service Mesh, Anthos Configuration Management,
+                Binary Authorization, and Cloud Security Command Center.
+
+            \item Collaborated with Engineering, Product Management, and
+                Product Marketing teams to support new product launches through
+                contributions to strategy, documentation, online content, and
+                supporting key customers.
+
+            \item Regularly presented at industry conferences including
+                KubeCon, Open Source Summit, EuroPython, and Google Cloud Next.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \citem{\large Web Architect} (Nov 2008--Dec 2014)\\BeProud, Inc. Tokyo, Japan --- A web development agency focusing on Python development
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Development and management of company products and services.
+                Products developed include:
+
+            \begin{itemize}
+
+                \item Responsible for concept, project management, and
+                    development of connpass.com, a service for IT events with
+                    tens of thousands of users and millions of page views a
+                    month (circa 2015).
+
+                \item A web service that uses machine learning techniques to
+                    find and filter inappropriate content.
+
+            \end{itemize}
+
+            \item Development and management of client projects. Products
+                developed include:
+
+            \begin{itemize}
+
+                \item A Q\&A and recommendation web service in Python with tens
+                    of thousands of active registered users, and hundreds of
+                    thousands of monthly visitors.
+
+                \item A Twitter-like micro-blogging service for career women
+                    with tens of thousands of users.
+
+                \item An E-book management and publishing system for digital
+                    book publishers covering multiple publishers, marketplaces,
+                    and book formats.
+
+            \end{itemize}
+
+            \item Provisioning and maintenance of server clusters in XEN based
+                private cloud as well as in public cloud services (AWS).
+
+            \item Communicate directly with customers to determine their needs
+                and provide customers with immediate feedback and project
+                status.
+
+            \item Provided technical leadership and mentorship, developed
+                company practices, and trained junior developers.
+
+        \end{itemize}
+
+        \citem{Achievements:}
+
+        \begin{itemize}
+
+            \item Instrumental in setting the company's engineering-driven
+                culture, allowing the company to grow from 6 employees to over
+                30.
+
+            \item Frequently spoke at, attended, and organized events,
+                successfully growing BeProud's customer and potential hiring
+                base. \ Made BeProud well known and well regarded in the
+                Japanese Python community. Aggressively recruited new talent.
+
+            \item Developed internal tools to improve internal and external
+                communication. These include:
+
+            \begin{itemize}
+
+                \item BeProud's Redmine installation used by employees and
+                    clients with tens of thousands of tickets and tens of
+                    thousands of page views per day.
+
+                \item An internal chat automation which processes tens of
+                    thousands of messages daily.
+
+                \item An email to chat gateway on Google App Engine.
+
+                \item A set of tools for posting notifications of new commits,
+                    ticket changes, and server monitoring alerts.
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \citem{\large Web Application Developer} (Oct 2006--Nov 2008)\\Think Inc. Tokyo, Japan --- A leading developer of software for hair salons and pharmacies.
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Led an international group of four software developers.
+
+            \item Design, implementation and maintenance of new products. These
+                products included:
+
+            \begin{itemize}
+
+                \item A menu, sales, and accounting package for large hair
+                    salons.
+
+                \item A 24 hour online appointment scheduling system with
+                    strong mobile functionality.
+
+                \item Campaign, tracking, and SEO software for mobile web
+                    websites.
+
+                \item Mobile email marketing solution including batching,
+                    throttling, and bounce processing of email.
+
+            \end{itemize}
+
+        \end{itemize}
+
+        \citem{Achievements:}
+
+        \begin{itemize}
+
+            \item Planned and executed a project to create a new appointment
+                scheduling system product. I designed the system architecture
+                and managed a team of four international developers to
+                implement the client and server components.
+
+            \item Led the drive to unify the management of customers across all
+                products in order to provide better support and more tightly
+                integrated services.
+
+            \item Developed a web hook based email message processing system in
+                Java.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \citem{\large Software Developer/Designer} (Sept 2004--Aug 2006)\\Software Development Division, Datatel Inc. Fairfax VA --- A leading supplier of secondary education enterprise software.
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Maintaining automated billing and accounting financial
+                software.
+
+            \item Maintaining preparatory tax form printing software.
+
+            \item Trained and mentored interns and new employees on company
+                products, and development practices.
+
+        \end{itemize}
+
+        \citem{Achievements:}
+
+        \begin{itemize}
+
+            \item Improved customizability of credit card payment
+                processing systems. The new system allowed the use of multiple
+                payment processors which could be automatically chosen based on
+                the customer's business needs.
+
+            \item Greatly improved the customizability and printing accuracy of
+                automated tax form printing. The new system allowed printing
+                based on postscript data replacing a system based on line
+                printing greatly improving the accuracy of the printing. Tax
+                forms could be defined using XML:FO stylesheets allowing
+                greater customizability by customers.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \citem{\large Associate Software Developer} (June 2003--Aug 2004)\\Software Development Division, Datatel Inc. Fairfax VA --- A leading supplier of secondary education enterprise software.
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Extend and maintain Reporting and Business Intelligence tools.
+
+        \end{itemize}
+
+        \citem{Achievements:}
+
+        \begin{itemize}
+
+            \item Improved database reporting by developing a new database
+                schema format allowing tighter integration with existing
+                business intelligence tools.
+
+            \item Developed a large scale database migration tool to migrate
+                old databases to the database format as well as an Java API for
+                interacting with the new schema.
+
+        \end{itemize}
+    \end{itemize}
+
+    \citem{\large Software Development Intern} (May 2002--May 2003)\\Software Development Division, Datatel Inc. Fairfax VA
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Enhance Accounts Receivable reporting applications.
+
+        \end{itemize}
+
+        \citem{Achievements:}
+
+        \begin{itemize}
+
+            \item Improved financial reporting tools.
+
+            \item Developed XSLT stylesheets to generate XSL:FO documents for
+                use in the automated printing of tax forms.
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{category}
+
+\begin{category}{Community}
+
+    \citem{\large Kubernetes Meetup Tokyo} (May 2016--Feb 2020)
+    \begin{itemize}
+
+        \item Founded and organized one of the largest Kubernetes communities
+            in the world, growing it to 7700+ members.
+
+        \item Recruited, and mentored a self-sustaining group of lead organizers.
+
+        \item Held over 40 meetup events, transitioning to online in 2020.
+
+    \end{itemize}
+
+    \citem{\large PyCon JP Board Vice Chairman} (March 2013--2019)
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Manage the budget and finances of the PyCon JP event.
+
+            \item Participate in determining the overall direction of the PyCon
+                JP event.
+
+            \item Recruit sponsors and negotiate sponsorship terms.
+
+        \end{itemize}
+
+        \citem{Achievements:}
+
+        \begin{itemize}
+
+            \item As one of the 4 founding members of PyCon JP I helped to grow
+                the conference from scratch to the largest Python event in
+                Japan and one of the largest regional PyCon conferences
+                worldwide in just two years. PyCon APAC 2013 had over 500
+                participants.
+
+            \item Increased participation in the PyCon JP event year to year.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \citem{\large PyCon JP Media Leader, International Liaison} (Oct 2010--2015)
+    \begin{itemize}
+
+        \citem{Responsibilities:}
+
+        \begin{itemize}
+
+            \item Ensure the conference runs smoothly for international guests.
+                Provide travel and lodging support.
+
+            \item Ensure visitors enjoy the conference and their stay in Japan.
+
+            \item Provide translation and logistics support.
+
+        \end{itemize}
+
+        \citem{Achievements:}
+        \begin{itemize}
+
+            \item Increased the quality of talks given at the PyCon JP event.
+
+            \item Increased international attendance and speaker recruitment
+                through social media outreach. Attendees traveled to Japan for
+                PyCon JP from many countries including the U.S.A. Taiwan,
+                China, Singapore, and the United Kingdom.
+
+        \end{itemize}
+
+    \end{itemize}
+
+    \citem{\large Official Google App Engine Developer Expert (GDE)} (Nov 2010--May 2014)
+    \begin{itemize}
+
+        \item One of only 2 recognized official Google App Engine Expert
+            Developers serving the Japanese Google App Engine Python community
+
+        \item Participated in Google affiliated events to educate developers
+            and promote Python and Google App Engine
+
+    \end{itemize}
+\end{category}
+
+\begin{category}{Education}
+\citem{Bridgewater College} Bridgewater VA\\B.S. in Computer Science, May 2003.\\Advisor: Dr.\ Leroy Williams\\Classes included Software Engineering in C/C++, Compiler Design, Operating Systems, and Design Patterns in Java. Cum. GPA\@: 3.2/4.0 Major GPA\@: 3.9/4.0
+\end{category}
+
+\begin{category}{References}
+\citembullet{}Available upon request
+\end{category}
+
+\end{document}
