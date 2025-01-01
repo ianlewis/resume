@@ -2,6 +2,6 @@
   "devDependencies": {
     "node": ">=22.2.0",
     "markdownlint-cli": "0.40.0",
-    "prettier": "3.2.5"
+    "prettier": "3.4.2"
   }
 }
