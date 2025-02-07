@@ -103,7 +103,7 @@ yaml-format: node_modules/.installed ## Format YAML files.
 #####################################################################
 
 .PHONY: lint
-lint: yamllint actionlint markdownlint ## Run all linters.
+lint: yamllint actionlint markdownlint chktex ## Run all linters.
 
 .PHONY: actionlint
 actionlint: ## Runs the actionlint linter.
@@ -156,6 +156,20 @@ yamllint: .venv/.installed ## Runs the yamllint linter.
 			extraargs="-f github"; \
 		fi; \
 		.venv/bin/yamllint --strict -c .yamllint.yaml $${extraargs} $${files}
+
+.PHONY: chktex
+chktex: ## Runs the chktex linter.
+	@set -euo pipefail;\
+		files=$$( \
+			git ls-files \
+				'*.tex' '**/*.tex' \
+				'*.latex' '**/*.latex' \
+		); \
+		chktex_out="$$(chktex --quiet --headererr $${files})"; \
+		if [ "$${chktex_out}" != "" ]; then \
+			echo "$${chktex_out}"; \
+			exit 1; \
+		fi
 
 ## Content
 #####################################################################
