@@ -1,16 +1,4 @@
-# Copyright 2024 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Copyright 2025 Ian Lewis
 
 name: "TODO Issue Reopener"
 
@@ -25,8 +13,10 @@ jobs:
   issue-reopener:
     runs-on: ubuntu-latest
     permissions:
+      # NOTE: contents: read is necessary for private repositories.
+      contents: read
       issues: write
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Issue Reopener
-        uses: ianlewis/todo-issue-reopener@339a05bfcc934adf6aa425b968a2d2f2af4f12ad # v1.2.1
+        uses: ianlewis/todo-issue-reopener@1a99cfd93fb95eb4f212a1ebaf3e9ef8ba4c46f8 # v1.4.0
