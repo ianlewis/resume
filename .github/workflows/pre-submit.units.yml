@@ -63,6 +63,18 @@ jobs:
   # linters
   ###############################
 
+  chktex:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      checks: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: j2kun/chktex-action@a3f031bbc2e5899f2b3efddcf9fc9ed25d525b98 # v2.1.0
+        with:
+          lint-all: true # Default: `false`
+
   actionlint:
     runs-on: ubuntu-latest
     steps:
