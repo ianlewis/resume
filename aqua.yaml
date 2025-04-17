@@ -1,4 +1,4 @@
-# Copyright 2024 Ian Lewis
+# Copyright 2025 Ian Lewis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,18 @@
 # limitations under the License.
 
 ---
-extends: default
-
-ignore-from-file: [.gitignore]
-
-rules:
-  comments:
-    # prettier formats comments one space from content
-    min-spaces-from-content: 1
-  document-start: disable
-  line-length: disable
-  truthy:
-    allowed-values: ["true", "false"]
-    # Allow Github Actions keys like 'on'
-    check-keys: false
-  comments-indentation: false
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+checksum:
+  enabled: true
+  require_checksum: true
+  supported_envs:
+    - all
+registries:
+  - type: standard
+    ref: v4.335.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+  - name: rhysd/actionlint@v1.7.7
+  - name: koalaman/shellcheck@v0.10.0
+  - name: jqlang/jq@jq-1.7.1
