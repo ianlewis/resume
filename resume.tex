@@ -12,7 +12,7 @@
 \renewcommand{\labelitemi}{$\cdot$}
 
 % Use fancy page style so that I can have my name in the header
-% as well as page numbers because the resume is long.
+% as well as page numbers because the resume is more than one page.
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
@@ -22,55 +22,91 @@
 \cfoot{\thepage}
 
 \author{Ian M. Lewis}
-\address{Nationality: U.S.A.\\Currently holding a U.S. passport and Japanese permanent residency\\English: Native\\Japanese: Fluent (reading/writing/spoken)}{ianlewis@gmail.com\\http://www.ianlewis.org/}
+\address{Nationality: U.S.A.\\
+Currently holding a U.S. passport and Japanese permanent residency.\\
+English: Native\\
+Japanese: Fluent (reading/writing/spoken)
+}{
+ian@ianlewis.org\\
+http://www.ianlewis.org/
+}
 
 \begin{document}
 
 \maketitle
 
-\begin{category}{Profile}
+% Remove extra space above profile section left my empty profile title.
+\vspace{-1.1cm}
 
-\citembullet{}Well rounded engineer with over 20 years of development
-    experience.  Experience in a wide range of areas including supply chain
-    security, web servers, web frontends, backends and microservice
-    architecture, cloud and infrastructure tooling, container runtimes, systems
-    development, and mobile development. A resident of Japan since 2006. Active
-    member of the Kubernetes and Container Security communities. Interested in
-    working on high impact projects for highly technical global companies.
-    Interests include container security, supply chain security, infrastructure
-    tooling, systems programming, foreign language and culture, and travel.
+\begin{category}{} % Profile
+
+    \citembullet{}I am an engineering leader with over 20 years of development
+        experience with a focus on cloud-native infrastructure, defensive security,
+        and developer experience. A resident of Japan since 2006, I believe that
+        software should be accessible to everyone, and I have a strong interest in
+        mentorship, education, and building a welcoming engineering culture. I am
+        interested in working on high impact projects for highly technical
+        globally-minded companies.
+
+    \citem{Areas of Proficiency:} Container Security, Systems design, Linux
+    systems programming
+    \citem{Programming Languages:} Go, Python, JavaScript/TypeScript, Java, C++,
+    Rust, PHP
+    \citem{Platforms:} Google Cloud Platform, Amazon Web Services, Kubernetes,
+    Containerd
+    \citem{Databases:} MySQL, PostgreSQL, Redis, Bigtable, Spanner
+    \citem{Spoken Languages:} Native English, Fluent Japanese (JLPT N-1 ---
+    2013)
+    \citem{Community:} Open Source Project Management \& Governance
 
 \end{category}
 
-\begin{category}{Qualifications}
-\citem{Skills} Container Security, Systems design, Linux systems programming
-\citem{Programming Languages} Go, Python, JavaScript/TypeScript, Java, C++, PHP
-\citem{Platforms} Google Cloud Platform, Amazon Web Services, Kubernetes, Containerd
-\citem{Databases} MySQL, PostgreSQL, Redis, Bigtable, Spanner
-\citem{Languages} Native English, Fluent Japanese (Japanese Language Proficiency Test N-1 --- 2013/12)
-\citem{Community} Open Source Project Management \& Governance
-\end{category}
+\begin{category}{Experience}
+    \citem{\large Senior Developer Relations Engineer} Google. Tokyo, Japan (2015--2024)
 
-\begin{category}{Work Experience}
-    \citem{\large Senior Developer Advocate --- Google Cloud Platform} (Jan 2015--Present)\\Google. Tokyo, Japan\\
-
-    Led Cloud-Native and Supply Chain Security Advocacy efforts.
+    Led Cloud-Native and Open-Source Supply Chain Security developer tooling and
+    outreach efforts.
 
     \begin{itemize}
 
-        \citem{Supply-chain Levels for Software Artifacts (SLSA)}
+        \citem{Supply-chain Levels for Software Artifacts (SLSA)} \emph{Software
+            Engineer.}\\
+            The SLSA framework is a software supply chain security framework
+            that provides a set of best practices and controls to protect
+            software from supply chain attacks. I was responsible for developing
+            open-source developer tooling in the form of a provenance generator
+            and verification tools for GitHub Actions supporting npm packages
+            and generic binary artifacts.
 
         \begin{itemize}
 
-            \item Led development of the generic SLSA provenance generator for
-                GitHub Actions.
+            \item Developed the Node.js SLSA builder for GitHub Actions and
+                partnered GitHub to integrate with the official npm registry.
+                \footnote{https://github.com/slsa-framework/slsa-github-generator/}
 
-            \item Led development of the Node.js SLSA builder for GitHub
-                Actions in partnership with GitHub and integrating with the npm
-                official registry.
+            \item Designed and developed the SLSA Generic generator for GitHub
+                Actions with an emphasis on user experience, allowing for the
+                addition of SLSA provenace generation by simply adding a new job
+                step to an existing GitHub Actions workflow.
 
             \item Contributed key features to underlying SLSA generation
-                framework and slsa-verifier.
+                framework allowing open-source projects to implement their own
+                secure builders and provenance generation.
+
+            \item Refactored verification tooling to support multiple artifact
+                types including OCI images, npm packages, and generic binary
+                artifacts.
+                \footnote{https://github.com/slsa-framework/slsa-verifier/}
+
+            \item Authored security policy for SLSA tooling and supported the
+                handling of security vulnerability reports including
+                communication with vulnerability reporters regarding
+                remediation and disclosure timelines.
+
+            \item Contributed to SLSA, OpenSSF Sigstore, and software supply
+                chain security education and outreach efforts including
+                documentation and presentations at Open Source Summit and Google
+                Cloud Next.
 
         \end{itemize}
 
@@ -78,21 +114,38 @@
 
     \begin{itemize}
 
-        \citem{gVisor}
+        \citem{gVisor} \emph{Software Engineer and Open-Source Advocacy.}\\
+            gVisor is a container runtime sandbox that provides a secure
+            environment for running untrusted code. I was responsible for the
+            open-source launch, outreach, and ongoing development of gVisor and
+            Google Kubernetes Engine (GKE) Sandbox.
 
         \begin{itemize}
 
+            \item Made major improvements to gVisor in the areas of Linux kernel
+                compatibility including netlink, linux pipes, and proc files.
+
+            \item Implemented OCI Seccomp support including overhauling gVisor's
+                BPF program generation.
+
+            \item Implemented the gVisor minikube addon allowing for easier
+                local testing.
+                \footnote{https://minikube.sigs.k8s.io/docs/handbook/addons/gvisor/}
+
+            \item Implemented automated generation of gVisor's system call
+                compatibility documentation.
+                \footnote{https://gvisor.dev/docs/user\_guide/compatibility/linux/amd64/}
+
+            \item Implemented RuntimeClass support in Knative allowing for
+                gVisor to be used as a sandbox for Knative workloads.
+                \footnote{https://knative.dev/docs/serving/runtimeclass/}
+                \footnote{https://gvisor.dev/docs/tutorials/knative/}
+
             \item Led the open-source gVisor project launch including demos,
-                videos, and documentation. Managed open-source contributions on
-                an ongoing basis.
+                videos, documentation, and open-source contributions.
 
-            \item Made major improvements to gVisor in the areas of Linux
-                kernel compatibility, OCI runtime implementation, and
-                Kubernetes integrations including the minikube addon,
-                containerd shim, and knative.
-
-            \item Played a critical role in launching and establishing gVisor
-                as a pivotal Google open source project and establishing GKE
+            \item Played a critical role in launching and establishing gVisor as
+                a pivotal Google open source project and establishing GKE
                 Sandbox as a key capability of Google Kubernetes Engine.
 
         \end{itemize}
@@ -121,7 +174,7 @@
 
     \end{itemize}
 
-    \citem{\large Web Architect} (Nov 2008--Dec 2014)\\BeProud, Inc. Tokyo, Japan --- A web development agency focusing on Python development
+    \citem{\large Web Architect} (2008--2014)\\BeProud, Inc. Tokyo, Japan --- A web development agency focusing on Python development
     \begin{itemize}
 
         \citem{Responsibilities:}
@@ -209,7 +262,7 @@
 
     \end{itemize}
 
-    \citem{\large Web Application Developer} (Oct 2006--Nov 2008)\\Think Inc. Tokyo, Japan --- A leading developer of software for hair salons and pharmacies.
+    \citem{\large Web Application Developer} (2006--2008)\\Think Inc. Tokyo, Japan --- A leading developer of software for hair salons and pharmacies.
     \begin{itemize}
 
         \citem{Responsibilities:}
