@@ -325,11 +325,7 @@ chktex: ## Runs the chktex linter.
 				'*.tex' \
 				'*.latex' \
 		); \
-		chktex_out="$$(chktex --quiet --headererr $${files})"; \
-		if [ "$${chktex_out}" != "" ]; then \
-			echo "$${chktex_out}"; \
-			exit 1; \
-		fi
+		chktex --quiet --headererr $${files}
 
 ## Content
 #####################################################################
