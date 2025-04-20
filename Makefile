@@ -182,7 +182,7 @@ yaml-format: node_modules/.installed ## Format YAML files.
 #####################################################################
 
 .PHONY: lint
-lint: actionlint chktex markdownlint renovate-config-validator textlint yamllint zizmor ## Run all linters.
+lint: actionlint aspell chktex markdownlint renovate-config-validator textlint yamllint zizmor ## Run all linters.
 
 .PHONY: actionlint
 actionlint: $(AQUA_ROOT_DIR)/.installed ## Runs the actionlint linter.
@@ -200,6 +200,35 @@ actionlint: $(AQUA_ROOT_DIR)/.installed ## Runs the actionlint linter.
 			actionlint -format '{{range $$err := .}}::error file={{$$err.Filepath}},line={{$$err.Line}},col={{$$err.Column}}::{{$$err.Message}}%0A```%0A{{replace $$err.Snippet "\\n" "%0A"}}%0A```\n{{end}}' -ignore 'SC2016:' $${files}; \
 		else \
 			actionlint $${files}; \
+		fi
+
+.PHONY: aspell
+aspell: ## Runs the aspell spell checker.
+	@set -euo pipefail;\
+		files=$$( \
+			git ls-files --deduplicate \
+				'*.tex' \
+				'*.latex' \
+				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
+		); \
+		exit_code=0; \
+		for filename in $${files}; do \
+			result=$$(aspell \
+				list \
+				--mode=tex \
+				--personal=$(REPO_ROOT)/.aspell.en.pws \
+				--add-filter=tex \
+				< $${filename} | sort | uniq); \
+			if [ "$${result}" != "" ]; then \
+				exit_code=1; \
+				echo "$${filename}..."; \
+				echo "################"; \
+				echo "$${result}"; \
+				echo ""; \
+			fi; \
+		done; \
+		if [ "$${exit_code}" != "0" ]; then \
+			exit "$${exit_code}"; \
 		fi
 
 .PHONY: zizmor

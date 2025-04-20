@@ -9,7 +9,8 @@ Csűrös](https://diro.umontreal.ca/repertoire-departement/professeurs/professeu
 ## Requirements
 
 - `pdflatex`: For generating the PDF.
-- `chktex`: For linting Latex files.
+- `chktex`: For linting LaTeX files.
+- `aspell`: For spell checking LaTeX files.
 
 ## Build resume PDF
 
