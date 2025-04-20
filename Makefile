@@ -151,7 +151,7 @@ json-format: node_modules/.installed ## Format JSON files.
 				'*.json5' \
 				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
 		); \
-		npx prettier --write --no-error-on-unmatched-pattern $${files}
+		./node_modules/.bin/prettier --write --no-error-on-unmatched-pattern $${files}
 
 .PHONY: md-format
 md-format: node_modules/.installed ## Format Markdown files.
@@ -162,7 +162,7 @@ md-format: node_modules/.installed ## Format Markdown files.
 				'*.md' \
 				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
 		); \
-		npx prettier \
+		./node_modules/.bin/prettier \
 			--tab-width 4 \
 			--write \
 			--no-error-on-unmatched-pattern \
@@ -176,7 +176,7 @@ yaml-format: node_modules/.installed ## Format YAML files.
 				'*.yml' \
 				'*.yaml' \
 		); \
-		npx prettier --write --no-error-on-unmatched-pattern $${files}
+		./node_modules/.bin/prettier --write --no-error-on-unmatched-pattern $${files}
 
 ## Linting
 #####################################################################
@@ -242,12 +242,12 @@ markdownlint: node_modules/.installed $(AQUA_ROOT_DIR)/.installed ## Runs the ma
 				message=$$(echo "$$p" | jq -c -r '.ruleNames[0] + "/" + .ruleNames[1] + " " + .ruleDescription + " [Detail: \"" + .errorDetail + "\", Context: \"" + .errorContext + "\"]"'); \
 				exit_code=1; \
 				echo "::error file=$${file},line=$${line},endLine=$${endline}::$${message}"; \
-			done <<< "$$(npx markdownlint --config .markdownlint.yaml --dot --json $${files} 2>&1 | jq -c '.[]')"; \
+			done <<< "$$(./node_modules/.bin/markdownlint --config .markdownlint.yaml --dot --json $${files} 2>&1 | jq -c '.[]')"; \
 			if [ "$${exit_code}" != "0" ]; then \
 				exit "$${exit_code}"; \
 			fi; \
 		else \
-			npx markdownlint --config .markdownlint.yaml --dot $${files}; \
+			./node_modules/.bin/markdownlint --config .markdownlint.yaml --dot $${files}; \
 		fi; \
 		files=$$( \
 			git ls-files --deduplicate \
@@ -264,12 +264,12 @@ markdownlint: node_modules/.installed $(AQUA_ROOT_DIR)/.installed ## Runs the ma
 				message=$$(echo "$$p" | jq -c -r '.ruleNames[0] + "/" + .ruleNames[1] + " " + .ruleDescription + " [Detail: \"" + .errorDetail + "\", Context: \"" + .errorContext + "\"]"'); \
 				exit_code=1; \
 				echo "::error file=$${file},line=$${line},endLine=$${endline}::$${message}"; \
-			done <<< "$$(npx markdownlint --config .github/template.markdownlint.yaml --dot --json $${files} 2>&1 | jq -c '.[]')"; \
+			done <<< "$$(./node_modules/.bin/markdownlint --config .github/template.markdownlint.yaml --dot --json $${files} 2>&1 | jq -c '.[]')"; \
 			if [ "$${exit_code}" != "0" ]; then \
 				exit "$${exit_code}"; \
 			fi; \
 		else \
-			npx markdownlint  --config .github/template.markdownlint.yaml --dot $${files}; \
+			./node_modules/.bin/markdownlint  --config .github/template.markdownlint.yaml --dot $${files}; \
 		fi
 
 .PHONY: renovate-config-validator
@@ -283,6 +283,7 @@ textlint: node_modules/.installed $(AQUA_ROOT_DIR)/.installed ## Runs the textli
 			git ls-files --deduplicate \
 				'*.md' \
 				'*.txt' \
+				':!:requirements.txt' \
 				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
 		); \
 		if [ "$(OUTPUT_FORMAT)" == "github" ]; then \
