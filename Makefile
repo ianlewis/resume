@@ -281,8 +281,10 @@ textlint: node_modules/.installed $(AQUA_ROOT_DIR)/.installed ## Runs the textli
 	@set -e;\
 		files=$$( \
 			git ls-files --deduplicate \
+				'*.latex' \
 				'*.md' \
 				'*.txt' \
+				'*.tex' \
 				':!:requirements.txt' \
 				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
 		); \

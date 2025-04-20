@@ -1,14 +1,19 @@
 {
   "plugin": [
     {
-      "id": "@textlint/textlint-plugin-text",
+      "id": "@textlint/textlint-plugin-latex2e",
       "options": {}
     },
     {
       "id": "@textlint/textlint-plugin-markdown",
       "options": {}
+    },
+    {
+      "id": "@textlint/textlint-plugin-text",
+      "options": {}
     }
   ],
+  "plugins": ["latex2e"],
   "filters": {
     "comments": true
   },
@@ -17,22 +22,22 @@
       "language": "en",
       "skipPatterns": [
         "CHANGELOG",
+        "CodeQL",
+        "Changelog",
         "CODEOWNER",
         "CLI",
         "CVSS",
         "DCO",
-        "PR",
-        "UI",
-        "YAML",
-        "Changelog",
-        "CodeQL",
         "Dependabot",
+        "e2e",
         "JavaScript",
         "MacOS",
         "Makefile",
         "Node.js",
         "OpenSSF",
-        "e2e",
+        "UI",
+        "PR",
+        "YAML",
         "/[Ff]ormatter/",
         "/[Ll]inter/",
         "/[Pp]re/",
@@ -46,7 +51,49 @@
         "/[0-9]+/",
         ":white_check_mark:",
         "Miklós",
-        "Csűrös"
+        "Csűrös",
+        "ABI",
+        "API",
+        "BPF",
+        "Backbone.js",
+        "BeProud",
+        "Bigtable",
+        "Bridgewater",
+        "CFP",
+        "CoffeeScript",
+        "Connpass",
+        "Containerd",
+        "Datatel",
+        "Ellucian",
+        "EuroPython",
+        "Fairfax",
+        "GKE",
+        "JLPT",
+        "Knative",
+        "KubeCon",
+        "Kubernetes",
+        "Netlink",
+        "Node.js",
+        "OCI",
+        "PyCon",
+        "SIPSS",
+        "SLSA",
+        "Sigstore",
+        "Seccomp",
+        "XML:FO",
+        "gVisor",
+        "Linux",
+        "leftmargin",
+        "minikube",
+        "npm",
+        "procfs",
+        "require.js",
+        "/[Aa]ddon/",
+        "/[Bb]ackend/",
+        "/[Cc]ustomizability/",
+        "/[Ff]rontend/",
+        "/[Ss]tylesheet/",
+        "/[Uu]ntrusted/"
       ]
     }
   }
