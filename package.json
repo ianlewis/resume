@@ -9,6 +9,7 @@
     "renovate": "39.220.4",
     "textlint": "14.5.0",
     "textlint-filter-rule-comments": "1.2.2",
+    "textlint-plugin-latex2e": "^1.2.1",
     "textlint-rule-spelling": "0.3.0"
   }
 }
