@@ -182,7 +182,7 @@ yaml-format: node_modules/.installed ## Format YAML files.
 #####################################################################
 
 .PHONY: lint
-lint: actionlint markdownlint renovate-config-validator textlint yamllint zizmor ## Run all linters.
+lint: actionlint chktex markdownlint renovate-config-validator textlint yamllint zizmor ## Run all linters.
 
 .PHONY: actionlint
 actionlint: $(AQUA_ROOT_DIR)/.installed ## Runs the actionlint linter.
@@ -331,7 +331,7 @@ chktex: ## Runs the chktex linter.
 #####################################################################
 
 Ian_M_Lewis_Resume.pdf: resume.tex resume.cls  ## Create resume PDF
-	pdflatex resume.tex
+	pdflatex -file-line-error -halt-on-error resume.tex
 	mv resume.pdf Ian_M_Lewis_Resume.pdf
 
 ## Maintenance

@@ -1,12 +1,14 @@
 % Copyright 2023 Ian Lewis
 
 \documentclass{resume}
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{enumitem}
 
 \renewcommand{\categoryfont}{\bf}
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{1in}
-\addtolength{\textwidth}{1.5in}
-\setlength{\topmargin}{-0.7in}
+% \setlength{\oddsidemargin}{0in}
+% \setlength{\evensidemargin}{1in}
+% \addtolength{\textwidth}{1.5in}
+% \setlength{\topmargin}{-0.7in}
 
 \renewcommand{\labelcitem}{}
 \renewcommand{\labelitemi}{$\cdot$}
@@ -48,7 +50,7 @@ http://www.ianlewis.org/
         interested in working on high impact projects for highly technical
         globally-minded companies.
 
-    \citem{Areas of Proficiency:} Container Security, Systems design, Linux
+    \citem{Technologies:} Container Security, Distributed System Design, Linux
     systems programming
     \citem{Programming Languages:} Go, Python, JavaScript/TypeScript, Java, C++,
     Rust, PHP
@@ -64,8 +66,9 @@ http://www.ianlewis.org/
 \begin{category}{Experience}
     \citem{\large Senior Developer Relations Engineer} Google. Tokyo, Japan (2015--2024)
 
-    Led Cloud-Native and Open-Source Supply Chain Security developer tooling and
-    outreach efforts.
+    Google Cloud is Google's cloud computing platform along with supporting APIs
+    and services. As a member of Google Cloud, I led Cloud-Native and
+    Open-Source Supply Chain Security developer tooling and outreach efforts.
 
     \begin{itemize}
 
@@ -107,6 +110,10 @@ http://www.ianlewis.org/
                 documentation and presentations at Open Source Summit and Google
                 Cloud Next.
 
+                \item Was awarded the Technical Infrastructure Tech Impact
+                    award in 2023 and Google-wide Tech Impact Award in 2024 for
+                    my work on SLSA and supply chain security.
+
         \end{itemize}
 
     \end{itemize}
@@ -115,9 +122,10 @@ http://www.ianlewis.org/
 
         \citem{gVisor} \emph{Software Engineer and Open-Source Advocacy.}\\
             gVisor is a container runtime sandbox that provides a secure
-            environment for running untrusted code. I was responsible for the
-            open-source launch, outreach, and ongoing development of gVisor and
-            Google Kubernetes Engine (GKE) Sandbox.
+            environment for running untrusted code. It is implemented as an
+            Linux ABI compatible userspace kernel written in Go. I was
+            responsible for the open-source launch, outreach, and ongoing
+            development of gVisor and Google Kubernetes Engine (GKE) Sandbox.
 
         \begin{itemize}
 
@@ -152,18 +160,24 @@ http://www.ianlewis.org/
 
     \begin{itemize}
 
-        \citem{Product Adoption}
+        \citem{Product Adoption} \emph{Developer Relations Engineer.}\\
+            I was responsible for the developer experience and product adoption
+            of Google Cloud's Container and Security products. I worked with
+            customers and product teams to identify areas where the developer
+            experience could be improved and collaborated with engineering teams
+            to implement those improvements.
 
         \begin{itemize}
 
-            \item Supported launches of numerous products including GKE
-                Sandbox, Anthos Service Mesh, Anthos Configuration Management,
-                Binary Authorization, and Cloud Security Command Center.
+            \item Developed and executed a Customer Empathy workshop program
+                with the Binary Authorization and Cloud Security Command Center
+                teams to identify areas where developer experience could be
+                improved.
 
-            \item Collaborated with Engineering, Product Management, and
-                Product Marketing teams to support new product launches through
-                contributions to strategy, documentation, online content, and
-                supporting key customers.
+            \item Collaborated with Engineering, Product Management, and Product
+                Marketing teams to support new product launches through
+                contributions to event strategy, documentation, online content,
+                and supporting key customers.
 
             \item Regularly presented at industry conferences including
                 KubeCon, Open Source Summit, EuroPython, and Google Cloud Next.
@@ -172,228 +186,135 @@ http://www.ianlewis.org/
 
     \end{itemize}
 
-    \citem{\large Web Architect} (2008--2014)\\BeProud, Inc. Tokyo, Japan --- A web development agency focusing on Python development
+    \citem{\large Software Engineer} BeProud, Inc. Tokyo, Japan (2008--2014)
+
+    BeProud is a leading Japanese software development company specializing in
+    the development of web applications and cloud services. I was responsible
+    for the development of BeProud's original services, development and
+    maintenance of internal company infrastructure, as well as the development
+    of customer projects.
+
     \begin{itemize}
 
-        \citem{Responsibilities:}
+        \citem{connpass.com} \emph{Tech Lead/Project Manager.}\\ 
+            connpass.com is a web service for IT events with hundreds of
+            thousands of users and tens of millions of page views a month. I was
+            was tech lead and responsible for conceptualization, software
+            design, architecture, implementation, and project management of the
+            service from scratch.
 
         \begin{itemize}
 
-            \item Development and management of company products and services.
-                Products developed include:
+            \item Developed the service's overall concept as an IT event
+                management platform covering an events full life cycle including
+                event creation, promotion, registration, and post-event sharing
+                of presentation content.\footnote{https://connpass.com/about/}
 
-            \begin{itemize}
+            \item Led a small team of engineers and designers, designing and
+                implementing the overall development process.
 
-                \item Responsible for concept, project management, and
-                    development of connpass.com, a service for IT events with
-                    tens of thousands of users and millions of page views a
-                    month (circa 2015).
+            \item Designed and implemented the service's lightweight modular
+                frontend architecture using Backbone.js, CoffeeScript, and
+                require.js.
 
-                \item A web service that uses machine learning techniques to
-                    find and filter inappropriate content.
+            \item Designed and implemented a unique system using Redis to cache
+                contacts from third-party social networks and email notification
+                system to aid in the service's organic growth.
 
-            \end{itemize}
+            \item Designed and implemented the service architecture on AWS
+                including load balancing, caching, and database replication.
 
-            \item Development and management of client projects. Products
-                developed include:
+            \item Efficiently handled large load spikes as popular events were
+                published with thousands of users concurrently registering.
 
-            \begin{itemize}
+        \end{itemize}
 
-                \item A Q\&A and recommendation web service in Python with tens
-                    of thousands of active registered users, and hundreds of
-                    thousands of monthly visitors.
 
-                \item A Twitter-like micro-blogging service for career women
-                    with tens of thousands of users.
+        \citem{Customer Projects} \emph{Software Engineer.}\\ 
+            I was responsible for the development of a number of customer
+            projects. Projects were typically developed in Python using a number
+            of web frameworks, but also included PHP and Java. I generally
+            communicated directly with customers to determine their needs and
+            provided frequent updates on project status to ensure project
+            success.
 
-                \item An E-book management and publishing system for digital
-                    book publishers covering multiple publishers, marketplaces,
-                    and book formats.
+        \begin{itemize}
 
-            \end{itemize}
+            \item Developed a web service to categorize and filter inappropriate
+                content using early machine learning techniques.
 
-            \item Provisioning and maintenance of server clusters in XEN based
-                private cloud as well as in public cloud services (AWS).
+            \item Developed an online Q\&A recommendation web service with
+                hundreds of thousands of monthly visitors.
 
-            \item Communicate directly with customers to determine their needs
-                and provide customers with immediate feedback and project
-                status.
+            \item Designed and developed a Twitter-like micro-blogging service
+                for career women with hundreds of thousands of monthly visitors.
+
+            \item Developed an E-book management and publishing system for
+                digital book publishers allowing the publishers to manage a
+                e-book's distribution pipeline covering multiple publishers,
+                marketplaces, and book formats.
 
             \item Provided technical leadership and mentorship, developed
                 company practices, and trained junior developers.
 
         \end{itemize}
 
-        \citem{Achievements:}
+    \end{itemize}
+
+    \citem{\large Software Engineer} Think, Inc. Tokyo, Japan (2006--2008)
+
+    Think, Inc.\ is a Japanese software development company specializing in point
+    of sale systems for hair salons and pharmacies.
+
+    \begin{itemize}
+
+        \citem{SIPSS} \emph{Tech Lead/Project Manager.}\\ 
+            SIPSS is a point of sale system for large hair salons. I was
+            responsible for the modernization of the system's backend
+            architecture and development of new products. I managed a small team
+            of infrastructure and client application developers.
 
         \begin{itemize}
 
-            \item Instrumental in setting the company's engineering-driven
-                culture, allowing the company to grow from 6 employees to over
-                30.
+            \item Designed and implemented a new mobile appointment registration
+                system for hair salons, including mobile web client, and backend
+                server using SOAP and PHP.\@
 
-            \item Frequently spoke at, attended, and organized events,
-                successfully growing BeProud's customer and potential hiring
-                base. \ Made BeProud well known and well regarded in the
-                Japanese Python community. Aggressively recruited new talent.
+            \item Proposed, and implemented a modernization of the system's
+                backend architecture merging with the company's existing mobile
+                marketing system to allow for single sign-on and unified
+                customer management in PHP.\@
 
-            \item Developed internal tools to improve internal and external
-                communication. These include:
-
-            \begin{itemize}
-
-                \item BeProud's Redmine installation used by employees and
-                    clients with tens of thousands of tickets and tens of
-                    thousands of page views per day.
-
-                \item An internal chat automation which processes tens of
-                    thousands of messages daily.
-
-                \item An email to chat gateway on Google App Engine.
-
-                \item A set of tools for posting notifications of new commits,
-                    ticket changes, and server monitoring alerts.
-
-            \end{itemize}
+            \item Designed and implemented improvements to the mobile marketing
+                system including campaign tracking, as well as new email server
+                with batching, throttling, and bounce processing capabilities
+                written in Java.
 
         \end{itemize}
 
     \end{itemize}
 
-    \citem{\large Web Application Developer} (2006--2008)\\Think Inc. Tokyo, Japan --- A leading developer of software for hair salons and pharmacies.
+    \citem{\large Software Developer/Designer} Datatel Inc. Fairfax, VA (2003--2006)
+
+    Datatel Inc.\ was a leading supplier of secondary education enterprise
+    solutions including curriculum management, student enrollment, vendor
+    management, and accounting and payment solutions. Datatel was aquired in
+    2011 and is now known as Ellucian.
+
     \begin{itemize}
 
-        \citem{Responsibilities:}
+        \item Improved student payments system to allow the use of multiple
+            payment processors which could be automatically chosen based on the
+            customer's business needs and cost model.
 
-        \begin{itemize}
+        \item Designed and implemented a new tax form printing system using
+            XML:FO stylesheets allowing for greater accuracy and customizability
+            by customers.
 
-            \item Led an international group of four software developers.
-
-            \item Design, implementation and maintenance of new products. These
-                products included:
-
-            \begin{itemize}
-
-                \item A menu, sales, and accounting package for large hair
-                    salons.
-
-                \item A 24 hour online appointment scheduling system with
-                    strong mobile functionality.
-
-                \item Campaign, tracking, and SEO software for mobile web
-                    websites.
-
-                \item Mobile email marketing solution including batching,
-                    throttling, and bounce processing of email.
-
-            \end{itemize}
-
-        \end{itemize}
-
-        \citem{Achievements:}
-
-        \begin{itemize}
-
-            \item Planned and executed a project to create a new appointment
-                scheduling system product. I designed the system architecture
-                and managed a team of four international developers to
-                implement the client and server components.
-
-            \item Led the drive to unify the management of customers across all
-                products in order to provide better support and more tightly
-                integrated services.
-
-            \item Developed a web hook based email message processing system in
-                Java.
-
-        \end{itemize}
-
-    \end{itemize}
-
-    \citem{\large Software Developer/Designer} (Sept 2004--Aug 2006)\\Software Development Division, Datatel Inc. Fairfax VA --- A leading supplier of secondary education enterprise software.
-    \begin{itemize}
-
-        \citem{Responsibilities:}
-
-        \begin{itemize}
-
-            \item Maintaining automated billing and accounting financial
-                software.
-
-            \item Maintaining preparatory tax form printing software.
-
-            \item Trained and mentored interns and new employees on company
-                products, and development practices.
-
-        \end{itemize}
-
-        \citem{Achievements:}
-
-        \begin{itemize}
-
-            \item Improved customizability of credit card payment
-                processing systems. The new system allowed the use of multiple
-                payment processors which could be automatically chosen based on
-                the customer's business needs.
-
-            \item Greatly improved the customizability and printing accuracy of
-                automated tax form printing. The new system allowed printing
-                based on postscript data replacing a system based on line
-                printing greatly improving the accuracy of the printing. Tax
-                forms could be defined using XML:FO stylesheets allowing
-                greater customizability by customers.
-
-        \end{itemize}
-
-    \end{itemize}
-
-    \citem{\large Associate Software Developer} (June 2003--Aug 2004)\\Software Development Division, Datatel Inc. Fairfax VA --- A leading supplier of secondary education enterprise software.
-    \begin{itemize}
-
-        \citem{Responsibilities:}
-
-        \begin{itemize}
-
-            \item Extend and maintain Reporting and Business Intelligence tools.
-
-        \end{itemize}
-
-        \citem{Achievements:}
-
-        \begin{itemize}
-
-            \item Improved database reporting by developing a new database
-                schema format allowing tighter integration with existing
-                business intelligence tools.
-
-            \item Developed a large scale database migration tool to migrate
-                old databases to the database format as well as an Java API for
-                interacting with the new schema.
-
-        \end{itemize}
-    \end{itemize}
-
-    \citem{\large Software Development Intern} (May 2002--May 2003)\\Software Development Division, Datatel Inc. Fairfax VA
-    \begin{itemize}
-
-        \citem{Responsibilities:}
-
-        \begin{itemize}
-
-            \item Enhance Accounts Receivable reporting applications.
-
-        \end{itemize}
-
-        \citem{Achievements:}
-
-        \begin{itemize}
-
-            \item Improved financial reporting tools.
-
-            \item Developed XSLT stylesheets to generate XSL:FO documents for
-                use in the automated printing of tax forms.
-
-        \end{itemize}
+        \item Designed and implemented a new database reporting tool including a
+            new business intelligence database schema format and migration tool
+            allowing for more intuitive reporting and tighter integration with
+            existing business intelligence tools.
 
     \end{itemize}
 
@@ -401,98 +322,51 @@ http://www.ianlewis.org/
 
 \begin{category}{Community}
 
-    \citem{\large Kubernetes Meetup Tokyo} (May 2016--Feb 2020)
-    \begin{itemize}
+    \citem{\large Kubernetes Meetup Tokyo} (2016--2020)
 
-        \item Founded and organized one of the largest Kubernetes communities
-            in the world, growing it to 7700+ members.
-
-        \item Recruited, and mentored a self-sustaining group of lead organizers.
-
-        \item Held over 40 meetup events, transitioning to online in 2020.
-
+    % itemize with leftmargin=* to remove indent gives this the look of a
+    % slightly indented paragraph.
+    \begin{itemize}[leftmargin=*]
+        \item[] I founded the Kubernetes Meetup Tokyo group in 2016 and served as the
+        lead, growing it to 7700+ members. I recruited and mentored a
+        self-sustaining group of lead organizers and fully handed it off in
+        2020.
     \end{itemize}
 
-    \citem{\large PyCon JP Board Vice Chairman} (March 2013--2019)
-    \begin{itemize}
+    \citem{\large PyCon JP} (2011--2019)
 
-        \citem{Responsibilities:}
+    \begin{itemize}[leftmargin=*]
+        \item[] The PyCon JP conference is the largest Python conference in Japan and
+        one of the largest regional PyCon conferences worldwide. I co-founded
+        the PyCon JP in 2011 and served as a the vice chairman of the board of
+        the PyCon JP non-profit organization from its inception in 2013 until
+        2019. As a member of the board, I was responsible for the overall
+        direction of the conference, recruiting corporate sponsors, and
+        managing budget and finances.
 
-        \begin{itemize}
-
-            \item Manage the budget and finances of the PyCon JP event.
-
-            \item Participate in determining the overall direction of the PyCon
-                JP event.
-
-            \item Recruit sponsors and negotiate sponsorship terms.
-
-        \end{itemize}
-
-        \citem{Achievements:}
-
-        \begin{itemize}
-
-            \item As one of the 4 founding members of PyCon JP I helped to grow
-                the conference from scratch to the largest Python event in
-                Japan and one of the largest regional PyCon conferences
-                worldwide in just two years. PyCon APAC 2013 had over 500
-                participants.
-
-            \item Increased participation in the PyCon JP event year to year.
-
-        \end{itemize}
-
+        \item[]I also served as media lead and international liaison from 2020 to 2014.
+        As media lead, I was responsible for the website, attendee registration,
+        event promotion, CFP, and speaker recruitement.
     \end{itemize}
 
-    \citem{\large PyCon JP Media Leader, International Liaison} (Oct 2010--2015)
-    \begin{itemize}
+    \citem{\large Google App Engine Developer Expert (GDE)} (2010--2014)
 
-        \citem{Responsibilities:}
-
-        \begin{itemize}
-
-            \item Ensure the conference runs smoothly for international guests.
-                Provide travel and lodging support.
-
-            \item Ensure visitors enjoy the conference and their stay in Japan.
-
-            \item Provide translation and logistics support.
-
-        \end{itemize}
-
-        \citem{Achievements:}
-        \begin{itemize}
-
-            \item Increased the quality of talks given at the PyCon JP event.
-
-            \item Increased international attendance and speaker recruitment
-                through social media outreach. Attendees traveled to Japan for
-                PyCon JP from many countries including the U.S.A. Taiwan,
-                China, Singapore, and the United Kingdom.
-
-        \end{itemize}
-
+    \begin{itemize}[leftmargin=*]
+        \item[] I was one of only 2 recognized official Google App Engine Developer
+        Experts serving the Japanese Google App Engine Python community. I
+        focused on developer education efforts, holding workshops and meetups to
+        share knowledge on Python programming and Google App Engine.
     \end{itemize}
 
-    \citem{\large Official Google App Engine Developer Expert (GDE)} (Nov 2010--May 2014)
-    \begin{itemize}
-
-        \item One of only 2 recognized official Google App Engine Expert
-            Developers serving the Japanese Google App Engine Python community
-
-        \item Participated in Google affiliated events to educate developers
-            and promote Python and Google App Engine
-
-    \end{itemize}
 \end{category}
 
 \begin{category}{Education}
-\citem{Bridgewater College} Bridgewater VA\\B.S. in Computer Science, May 2003.\\Advisor: Dr.\ Leroy Williams\\Classes included Software Engineering in C/C++, Compiler Design, Operating Systems, and Design Patterns in Java. Cum. GPA\@: 3.2/4.0 Major GPA\@: 3.9/4.0
-\end{category}
-
-\begin{category}{References}
-\citembullet{}Available upon request
+\citem{Bridgewater College} Bridgewater VA\\
+    B.S. in Computer Science, May 2003.\\
+    Advisor: Dr.\ Leroy Williams\\
+    Classes included Algorithms, Compiler Design, Operating Systems, and
+    Design Patterns.\\
+    Cum. GPA\@: 3.2/4.0 Major GPA\@: 3.9/4.0
 \end{category}
 
 \end{document}
