@@ -73,7 +73,7 @@ jobs:
           set -euo pipefail
 
           # Generate the subjects (base64 encoded).
-          echo "hashes=$(sha256sum Ian_M_Lewis_Resume.pdf | base64 -w0)" >> "${GITHUB_OUTPUT}"
+          echo "digests=$(sha256sum Ian_M_Lewis_Resume.pdf | base64 -w0)" >> "${GITHUB_OUTPUT}"
 
   provenance:
     needs: [build]
