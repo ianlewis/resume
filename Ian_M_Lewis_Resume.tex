@@ -1,13 +1,15 @@
 % Copyright 2023 Ian Lewis
 
 \documentclass{article}
-\usepackage[a4paper, total={7in, 10in}]{geometry}
+% NOTE: A4 paper is 21cm x 29.7cm
+\usepackage[a4paper, total={18cm, 26cm}]{geometry}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{fontspec}
+\usepackage{fancyhdr}
 
 % Use fancy page style so that I can have my name in the header
 % as well as page numbers because the resume is more than one page.
-\usepackage{fancyhdr}
-
 \pagestyle{fancy}
 % Add page number to the center of the footer.
 \cfoot{\thepage}
@@ -22,6 +24,14 @@
     BoldFeatures={RawFeature={+axis={wght=semibold}}},
     BoldItalicFeatures={RawFeature={+axis={wght=semibold}}},
 ]{NotoSans-VariableFont_wdth,wght}
+
+% Sections formatting
+\titleformat{\section}[block]{
+    \Large
+    \filcenter
+}{}{0em}{}[
+    \color{black}\titlerule
+]
 
 \begin{document}
 
@@ -42,15 +52,10 @@
         \end{flushright}
     }
     \par
-    \vskip 1.5em
+    \vskip 0.5em
     \thispagestyle{empty}
 \endgroup
 
-% Remove extra space above profile section left my empty profile title.
-% \vspace{-1.1cm}
-
-% \setlength{\leftmargin}{0in}	% no extra left margin before bullets
-% \setlength{\parsep}{0in}
 \setlength{\topsep}{0in}
 
 \begin{flushleft}
@@ -63,8 +68,8 @@ impact projects for highly technical globally-minded companies.
 \end{flushleft}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
-    \setlength{\parsep}{0in}
+    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\parsep}{0cm}
 }
     \item \textbf{Technologies:} Container Security, Distributed
         System Design, Linux systems programming
@@ -78,16 +83,11 @@ impact projects for highly technical globally-minded companies.
     \item \textbf{Community:} Open Source Project Management \& Governance
 \end{list}
 
-\begin{center}
-    \textbf{\Large Experience}
-\end{center}
-\begin{center}
-    \noindent\rule{8cm}{0.4pt}
-\end{center}
+\section{Experience}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
-    \setlength{\parsep}{0.05in}
+    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\parsep}{0.15cm}
 }
 
     \item \textbf{\large Senior Developer Relations Engineer}, \emph{Google.
@@ -127,10 +127,10 @@ impact projects for highly technical globally-minded companies.
                 types including OCI images, npm packages, and generic binary
                 artifacts.\footnote{https://github.com/slsa-framework/slsa-verifier/}
 
-            \item Authored security policy for SLSA tooling and supported the
-                handling of security vulnerability reports including
-                communication with vulnerability reporters regarding
-                remediation and disclosure timelines.
+            % \item Authored security policy for SLSA tooling and supported the
+            %     handling of security vulnerability reports including
+            %     communication with vulnerability reporters regarding
+            %     remediation and disclosure timelines.
 
             \item Contributed to SLSA, OpenSSF Sigstore, and software supply
                 chain security education and outreach efforts including
@@ -198,13 +198,11 @@ impact projects for highly technical globally-minded companies.
 
             \item Developed and executed a Customer Empathy workshop program
                 with the Binary Authorization and Cloud Security Command Center
-                teams to identify areas where developer experience could be
-                improved.
+                teams to identify developer experience improvements.
 
             \item Collaborated with Engineering, Product Management, and Product
-                Marketing teams to support new product launches through
-                contributions to product strategy, documentation, online content,
-                and supporting key customers.
+                Marketing teams to through contributions to product strategy,
+                documentation, online content, and supporting key customers.
 
             \item Regularly presented at industry conferences including
                 KubeCon, Open Source Summit, EuroPython, and Google Cloud Next.
@@ -234,9 +232,9 @@ impact projects for highly technical globally-minded companies.
         \begin{itemize}
 
             \item Developed the service's overall concept as an IT event
-                management platform covering an events full life cycle including
-                event creation, promotion, registration, and post-event sharing
-                of presentation content.\footnote{https://connpass.com/about/}
+                platform covering an events full life cycle including event
+                creation, promotion, registration, and post-event sharing of
+                presentation content.\footnote{https://connpass.com/about/}
 
             \item Led a small team of engineers and designers, designing and
                 implementing the overall development process.
@@ -261,25 +259,21 @@ impact projects for highly technical globally-minded companies.
         \item \textbf{Customer Projects} \emph{Software Engineer.}\\
             I was responsible for the development of a number of customer
             projects. Projects were typically developed in Python using a number
-            of web frameworks, but also included PHP and Java. I generally
-            communicated directly with customers to determine their needs and
-            provided frequent updates on project status to ensure project
-            success.
+            of web frameworks, but also included PHP and Java. I communicated
+            directly with customers to determine their needs and provided
+            frequent updates on project status to ensure project success.
 
         \begin{itemize}
 
-            \item Developed a web service to categorize and filter inappropriate
-                content using early machine learning techniques.
+            \item Designed and implemented a web service to categorize and
+                filter inappropriate content using early machine learning
+                techniques.
 
-            \item Developed an online Q\&A recommendation web service with
-                hundreds of thousands of monthly visitors.
-
-            \item Designed and developed a Twitter-like micro-blogging service
-                for career women with hundreds of thousands of monthly visitors.
+            \item Developed an online Q\&A recommendation, and micro-blogging
+                service with hundreds of thousands of monthly visitors.
 
             \item Developed an E-book management and publishing system for
-                digital book publishers allowing the publishers to manage a
-                e-book's distribution pipeline covering multiple publishers,
+                digital book publishers covering multiple publishers,
                 marketplaces, and book formats.
 
             \item Provided technical leadership and mentorship, developed
@@ -310,14 +304,12 @@ impact projects for highly technical globally-minded companies.
                 server using SOAP and PHP.\@
 
             \item Proposed, and implemented a modernization of the system's
-                backend architecture merging with the company's existing mobile
-                marketing system to allow for single sign-on and unified
+                backend architecture to allow single sign-on and unified
                 customer management in PHP.\@
 
-            \item Designed and implemented improvements to the mobile marketing
-                system including campaign tracking, as well as new email server
-                with batching, throttling, and bounce processing capabilities
-                written in Java.
+            \item Designed and implemented improvements to mobile marketing
+                including campaign tracking, and new email server with batching,
+                throttling, and bounce processing capabilities written in Java.
 
         \end{itemize}
 
@@ -340,18 +332,17 @@ impact projects for highly technical globally-minded companies.
 
         \begin{itemize}
 
-            \item Improved student payments system to allow the use of multiple
-                payment processors which could be automatically chosen based on the
-                customer's business needs and cost model.
+            \item Improved student payments system to allow multiple payment
+                processors which could be chosen based on the customer's
+                business needs.
 
             \item Designed and implemented a new tax form printing system using
                 XML:FO stylesheets allowing for greater accuracy and customizability
                 by customers.
 
-            \item Designed and implemented a new database reporting tool including a
-                new business intelligence database schema format and migration tool
-                allowing for more intuitive reporting and tighter integration with
-                existing business intelligence workflows.
+            \item Designed and implemented a new business intelligence database
+                schema format and migration tool for more intuitive reporting
+                and tighter integration with existing BI workflows.
 
         \end{itemize}
 
@@ -359,16 +350,11 @@ impact projects for highly technical globally-minded companies.
 
 \end{list}
 
-\begin{center}
-    \textbf{\Large Community}
-\end{center}
-\begin{center}
-    \noindent\rule{8cm}{0.4pt}
-\end{center}
+\section{Community}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
-    \setlength{\parsep}{0.05in}
+    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\parsep}{0.15cm}
 }
     \item \textbf{\large Kubernetes Meetup Tokyo} (2016--2020)
 
@@ -380,13 +366,12 @@ impact projects for highly technical globally-minded companies.
 
     \item \textbf{\large PyCon JP} (2011--2019)
 
-    The PyCon JP conference is the largest Python conference in Japan and one of
-    the largest regional PyCon conferences worldwide. I foo a co-founded the
-    PyCon JP in 2011 and served as a the vice chairman of the board of the PyCon
-    JP non-profit organization\footnote{https://www.pycon.jp/} from its
-    inception in 2013 until 2019. As a member of the board, I was responsible
-    for the overall direction of the conference, recruiting corporate sponsors,
-    and managing budget and finances. From 2010 to 2014 served as media lead and
+    I co-founded the PyCon JP, the largest Python conference in Japan, in 2011
+    and served as a the vice chairman of the board of the PyCon JP non-profit
+    organization\footnote{https://www.pycon.jp/} from its inception in 2013
+    until 2019. As a member of the board, I was responsible for the overall
+    direction of the conference, recruiting corporate sponsors, and managing
+    budget and finances. From 2010 to 2014 served as media lead and
     international liaison. As media lead, I was responsible for the public
     website and infrastructure, attendee registration, event promotion, CFP, and
     speaker recruitment.
@@ -400,16 +385,11 @@ impact projects for highly technical globally-minded companies.
     Python programming and Google App Engine.
 \end{list}
 
-\begin{center}
-    \textbf{\Large Education}
-\end{center}
-\begin{center}
-    \noindent\rule{8cm}{0.4pt}
-\end{center}
+\section{Education}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
-    \setlength{\parsep}{0.05in}
+    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\parsep}{0.15cm}
 }
 \item \textbf{Bridgewater College} Bridgewater VA\\
     B.S. in Computer Science, May 2003.\\
