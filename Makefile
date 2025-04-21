@@ -77,14 +77,14 @@ package-lock.json: package.json
 node_modules/.installed: package-lock.json
 	@npm clean-install
 	@npm audit signatures
-	@touch node_modules/.installed
+	@touch $<
 
 .venv/bin/activate:
 	@python -m venv .venv
 
-.venv/.installed: .venv/bin/activate requirements.txt
-	@./.venv/bin/pip install -r requirements.txt --require-hashes
-	@touch .venv/.installed
+.venv/.installed: requirements.txt .venv/bin/activate
+	@./.venv/bin/pip install -r $< --require-hashes
+	@touch $<
 
 .bin/aqua-$(AQUA_VERSION)/aqua:
 	@set -euo pipefail; \
@@ -336,9 +336,8 @@ chktex: ## Runs the chktex linter.
 ## Content
 #####################################################################
 
-Ian_M_Lewis_Resume.pdf: resume.tex ## Create resume PDF
-	lualatex -file-line-error -halt-on-error resume.tex
-	mv resume.pdf Ian_M_Lewis_Resume.pdf
+Ian_M_Lewis_Resume.pdf: Ian_M_Lewis_Resume.tex ## Create resume PDF
+	@lualatex -file-line-error -halt-on-error $<
 
 ## Maintenance
 #####################################################################
