@@ -72,9 +72,11 @@ help: ## Print all Makefile targets (this message).
 
 package-lock.json: package.json
 	@npm install
+	@npm audit signatures
 
 node_modules/.installed: package-lock.json
-	@npm ci
+	@npm clean-install
+	@npm audit signatures
 	@touch node_modules/.installed
 
 .venv/bin/activate:
