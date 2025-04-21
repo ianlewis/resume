@@ -77,14 +77,14 @@ package-lock.json: package.json
 node_modules/.installed: package-lock.json
 	@npm clean-install
 	@npm audit signatures
-	@touch $<
+	touch $@
 
 .venv/bin/activate:
 	@python -m venv .venv
 
 .venv/.installed: requirements.txt .venv/bin/activate
 	@./.venv/bin/pip install -r $< --require-hashes
-	@touch $<
+	@touch $@
 
 .bin/aqua-$(AQUA_VERSION)/aqua:
 	@set -euo pipefail; \
