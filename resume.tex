@@ -1,66 +1,97 @@
 % Copyright 2023 Ian Lewis
 
-\documentclass{resume}
+\documentclass{article}
 \usepackage[a4paper, total={7in, 10in}]{geometry}
-\usepackage{enumitem}
-
-\renewcommand{\categoryfont}{\bf}
-
-\renewcommand{\labelcitem}{}
-\renewcommand{\labelitemi}{$\cdot$}
+\usepackage{fontspec}
 
 % Use fancy page style so that I can have my name in the header
 % as well as page numbers because the resume is more than one page.
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
-% Remove header rule
-\renewcommand{\headrulewidth}{0pt}
 % Add page number to the center of the footer.
 \cfoot{\thepage}
 
-\author{Ian M. Lewis}
-\address{Nationality: U.S.A.\\
-Currently holding a U.S. passport and Japanese permanent residency.\\
-English: Native\\
-Japanese: Fluent (reading/writing/spoken)
-}{
-ian@ianlewis.org\\
-http://www.ianlewis.org/
-}
+\setmainfont[
+    Path                = fonts/,
+    Extension           = .ttf,
+    Ligatures           = TeX,
+    BoldFont            = {NotoSans-VariableFont_wdth,wght},
+    ItalicFont          = {NotoSans-Italic-VariableFont_wdth,wght},
+    BoldItalicFont      = {NotoSans-Italic-VariableFont_wdth,wght},
+    BoldFeatures={RawFeature={+axis={wght=semibold}}},
+    BoldItalicFeatures={RawFeature={+axis={wght=semibold}}},
+]{NotoSans-VariableFont_wdth,wght}
 
 \begin{document}
 
-\maketitle
+% Title
+\begingroup
+    \makebox[\textwidth]{\textbf{\LARGE Ian M.Lewis}}\\
+    \parbox[t]{.5\textwidth}{
+        \begin{flushleft}
+        \textbf{Nationality:} U.S.A. (Japanese permanent residency)\\
+        \textbf{English:} Native\\
+        \textbf{Japanese:} Fluent (reading/writing/spoken)
+        \end{flushleft}
+    }\hfill%
+    \parbox[t]{.5\textwidth}{
+        \begin{flushright}
+            ian@ianlewis.org\\
+            http://www.ianlewis.org/
+        \end{flushright}
+    }
+    \par
+    \vskip 1.5em
+    \thispagestyle{empty}
+\endgroup
 
 % Remove extra space above profile section left my empty profile title.
-\vspace{-1.1cm}
+% \vspace{-1.1cm}
 
-\begin{category}{} % Profile
+% \setlength{\leftmargin}{0in}	% no extra left margin before bullets
+% \setlength{\parsep}{0in}
+\setlength{\topsep}{0in}
 
-    \citembullet{}I am an engineering leader with over 20 years of development
-        experience with a focus on cloud-native infrastructure, defensive security,
-        and developer experience. A resident of Japan since 2006, I believe that
-        software should be accessible to everyone, and I have a strong interest in
-        mentorship, education, and building a welcoming engineering culture. I am
-        interested in working on high impact projects for highly technical
-        globally-minded companies.
+\begin{flushleft}
+I am an engineering leader with over 20 years of development experience with a
+focus on cloud-native infrastructure, defensive security, and developer
+experience. A resident of Japan since 2006, I believe that software should be
+accessible to everyone, and I have a strong interest in mentorship, education,
+and building a welcoming engineering culture. I am interested in working on high
+impact projects for highly technical globally-minded companies.
+\end{flushleft}
 
-    \citem{Technologies:} Container Security, Distributed System Design, Linux
-    systems programming
-    \citem{Programming Languages:} Go, Python, JavaScript/TypeScript, Java, C++,
-    Rust, PHP
-    \citem{Platforms:} Google Cloud Platform, Amazon Web Services, Kubernetes,
-    Containerd
-    \citem{Databases:} MySQL, PostgreSQL, Redis, Bigtable, Spanner
-    \citem{Spoken Languages:} Native English, Fluent Japanese (JLPT N-1 ---
-    2013)
-    \citem{Community:} Open Source Project Management \& Governance
+\begin{list}{}{
+    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
+    \setlength{\parsep}{0in}
+}
+    \item \textbf{Technologies:} Container Security, Distributed
+        System Design, Linux systems programming
+    \item \textbf{Programming Languages:} Go, Python, JavaScript/TypeScript,
+        Java, C++, Rust, PHP
+    \item \textbf{Platforms:} Google Cloud Platform, Amazon Web Services,
+        Kubernetes, Containerd
+    \item \textbf{Databases:} MySQL, PostgreSQL, Redis, Bigtable, Spanner
+    \item \textbf{Spoken Languages:} Native English, Fluent Japanese (JLPT N-1
+        --- 2013)
+    \item \textbf{Community:} Open Source Project Management \& Governance
+\end{list}
 
-\end{category}
+\begin{center}
+    \textbf{\Large Experience}
+\end{center}
+\begin{center}
+    \noindent\rule{8cm}{0.4pt}
+\end{center}
 
-\begin{category}{Experience}
-    \citem{\large Senior Developer Relations Engineer} Google. Tokyo, Japan (2015--2024)
+\begin{list}{}{
+    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
+    \setlength{\parsep}{0.05in}
+}
+
+    \item \textbf{\large Senior Developer Relations Engineer}, \emph{Google.
+        Tokyo, Japan (2015--2024)}
 
     Google Cloud is Google's cloud computing platform along with supporting APIs
     and services. As a member of Google Cloud, I led Cloud-Native and
@@ -68,7 +99,7 @@ http://www.ianlewis.org/
 
     \begin{itemize}
 
-        \citem{Supply-chain Levels for Software Artifacts (SLSA)} \emph{Software
+        \item \textbf{Supply-chain Levels for Software Artifacts (SLSA)}, \emph{Software
             Engineer.}\\
             The SLSA framework is a software supply chain security framework
             that provides a set of best practices and controls to protect
@@ -116,7 +147,7 @@ http://www.ianlewis.org/
 
     \begin{itemize}
 
-        \citem{gVisor} \emph{Software Engineer and Open-Source Advocacy.}\\
+        \item \textbf{gVisor} \emph{Software Engineer and Open-Source Advocacy.}\\
             gVisor is a container runtime sandbox that provides a secure
             environment for running untrusted code. It is implemented as an
             Linux ABI compatible userspace kernel written in Go. I was
@@ -156,7 +187,7 @@ http://www.ianlewis.org/
 
     \begin{itemize}
 
-        \citem{Product Adoption} \emph{Developer Relations Engineer.}\\
+        \item \textbf{Product Adoption} \emph{Developer Relations Engineer.}\\
             I was responsible for the developer experience and product adoption
             of Google Cloud's Container and Security products. I worked with
             customers and product teams to identify areas where the developer
@@ -182,7 +213,8 @@ http://www.ianlewis.org/
 
     \end{itemize}
 
-    \citem{\large Software Engineer} BeProud, Inc. Tokyo, Japan (2008--2014)
+    \item \textbf{\large Software Engineer}, \emph{BeProud, Inc. Tokyo, Japan
+        (2008--2014)}
 
     BeProud is a leading Japanese software development company specializing in
     the development of web applications and cloud services. I was responsible
@@ -192,7 +224,7 @@ http://www.ianlewis.org/
 
     \begin{itemize}
 
-        \citem{Connpass} \emph{Tech Lead/Project Manager.}\\
+        \item \textbf{Connpass} \emph{Tech Lead/Project Manager.}\\
             Connpass is a web service for IT events with hundreds of
             thousands of users and tens of millions of page views a month. I was
             was tech lead and responsible for conceptualization, software
@@ -226,7 +258,7 @@ http://www.ianlewis.org/
         \end{itemize}
 
 
-        \citem{Customer Projects} \emph{Software Engineer.}\\
+        \item \textbf{Customer Projects} \emph{Software Engineer.}\\
             I was responsible for the development of a number of customer
             projects. Projects were typically developed in Python using a number
             of web frameworks, but also included PHP and Java. I generally
@@ -257,14 +289,15 @@ http://www.ianlewis.org/
 
     \end{itemize}
 
-    \citem{\large Software Engineer} Think, Inc. Tokyo, Japan (2006--2008)
+    \item \textbf{\large Software Engineer} \emph{Think, Inc. Tokyo, Japan
+        (2006--2008)}
 
     Think, Inc.\ is a Japanese software development company specializing in point
     of sale systems for hair salons and pharmacies.
 
     \begin{itemize}
 
-        \citem{SIPSS} \emph{Tech Lead/Project Manager.}\\
+        \item \textbf{SIPSS} \emph{Tech Lead/Project Manager.}\\
             SIPSS is a point of sale system for large hair salons. I was
             responsible for the modernization of the system's backend
             architecture and development of new products. I managed a small team
@@ -290,7 +323,7 @@ http://www.ianlewis.org/
 
     \end{itemize}
 
-    \citem{\large Software Developer/Designer} Datatel Inc. Fairfax, VA (2003--2006)
+    \item \textbf{\large Software Developer/Designer} Datatel Inc. Fairfax, VA (2003--2006)
 
     Datatel Inc.\ was a leading supplier of secondary education enterprise
     solutions including student enrollment, student program and degree
@@ -300,7 +333,7 @@ http://www.ianlewis.org/
 
     \begin{itemize}
 
-        \citem{Colleague} \emph{Software Engineer.}\\
+        \item \textbf{Colleague} \emph{Software Engineer.}\\
             Colleague is a wide-ranging enterprise system for higher education
             institutions. I was responsible for the student payment and
             accounting, as well as business intelligence services.
@@ -324,60 +357,66 @@ http://www.ianlewis.org/
 
     \end{itemize}
 
-\end{category}
+\end{list}
 
-\begin{category}{Community}
+\begin{center}
+    \textbf{\Large Community}
+\end{center}
+\begin{center}
+    \noindent\rule{8cm}{0.4pt}
+\end{center}
 
-    \citem{\large Kubernetes Meetup Tokyo} (2016--2020)
+\begin{list}{}{
+    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
+    \setlength{\parsep}{0.05in}
+}
+    \item \textbf{\large Kubernetes Meetup Tokyo} (2016--2020)
 
-    % itemize with `leftmargin=* to remove indent gives this the look of a
-    % slightly indented paragraph.
-    \begin{itemize}[leftmargin=*]
-        \item[] I founded the Kubernetes Meetup
-            Tokyo\footnote{https://k8sjp.connpass.com/} group in 2016 and served
-            as the lead, growing it to 7700+ members. I was responsible for
-            event planning, recruiting speakers, and serve as MC for most
-            events. I recruited and mentored a self-sustaining group of lead
-            organizers and fully handed it off in 2020.
-    \end{itemize}
+    I founded the Kubernetes Meetup Tokyo\footnote{https://k8sjp.connpass.com/}
+    group in 2016 and served as the lead, growing it to 7700+ members. I was
+    responsible for event planning, recruiting speakers, and serve as MC for
+    most events. I recruited and mentored a self-sustaining group of lead
+    organizers and fully handed it off in 2020.
 
-    \citem{\large PyCon JP} (2011--2019)
+    \item \textbf{\large PyCon JP} (2011--2019)
 
-    \begin{itemize}[leftmargin=*]
-        \item[] The PyCon JP conference is the largest Python conference in
-            Japan and one of the largest regional PyCon conferences worldwide. I
-            foo a co-founded the PyCon JP in 2011 and served as a the vice
-            chairman of the board of the PyCon JP non-profit
-            organization\footnote{https://www.pycon.jp/} from its inception in
-            2013 until 2019. As a member of the board, I was responsible for the
-                 overall direction of the conference, recruiting corporate
-                 sponsors, and managing budget and finances. From 2010 to 2014
-                 served as media lead and international liaison. As media lead,
-                 I was responsible for the public website and infrastructure,
-                 attendee registration, event promotion, CFP, and speaker
-                 recruitment.
-    \end{itemize}
+    The PyCon JP conference is the largest Python conference in Japan and one of
+    the largest regional PyCon conferences worldwide. I foo a co-founded the
+    PyCon JP in 2011 and served as a the vice chairman of the board of the PyCon
+    JP non-profit organization\footnote{https://www.pycon.jp/} from its
+    inception in 2013 until 2019. As a member of the board, I was responsible
+    for the overall direction of the conference, recruiting corporate sponsors,
+    and managing budget and finances. From 2010 to 2014 served as media lead and
+    international liaison. As media lead, I was responsible for the public
+    website and infrastructure, attendee registration, event promotion, CFP, and
+    speaker recruitment.
 
-    \citem{\large Google App Engine Developer Expert (GDE)} (2010--2014)
+    \item \textbf{\large Google App Engine Developer Expert (GDE)} (2010--2014)
 
-    \begin{itemize}[leftmargin=*]
-        \item[] I was one of only 2 recognized official Google App Engine
-            Developer
-            Experts\footnote{https://developers.google.com/community/experts}
-            serving the Japanese Google App Engine Python community. I focused
-            on developer education efforts, holding workshops and meetups to
-            share knowledge on Python programming and Google App Engine.
-    \end{itemize}
+    I was one of only 2 recognized official Google App Engine Developer
+    Experts\footnote{https://developers.google.com/community/experts} serving
+    the Japanese Google App Engine Python community. I focused on developer
+    education efforts, holding workshops and meetups to share knowledge on
+    Python programming and Google App Engine.
+\end{list}
 
-\end{category}
+\begin{center}
+    \textbf{\Large Education}
+\end{center}
+\begin{center}
+    \noindent\rule{8cm}{0.4pt}
+\end{center}
 
-\begin{category}{Education}
-\citem{Bridgewater College} Bridgewater VA\\
+\begin{list}{}{
+    \setlength{\leftmargin}{0in}	% no extra left margin before bullets
+    \setlength{\parsep}{0.05in}
+}
+\item \textbf{Bridgewater College} Bridgewater VA\\
     B.S. in Computer Science, May 2003.\\
     Advisor: Dr.\ Leroy Williams\\
     Classes included Algorithms, Compiler Design, Operating Systems, and
     Design Patterns.\\
     Cum. GPA\@: 3.2/4.0 Major GPA\@: 3.9/4.0
-\end{category}
+\end{list}
 
 \end{document}

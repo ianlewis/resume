@@ -333,8 +333,8 @@ chktex: ## Runs the chktex linter.
 ## Content
 #####################################################################
 
-Ian_M_Lewis_Resume.pdf: resume.tex resume.cls  ## Create resume PDF
-	pdflatex -file-line-error -halt-on-error resume.tex
+Ian_M_Lewis_Resume.pdf: resume.tex ## Create resume PDF
+	lualatex -file-line-error -halt-on-error resume.tex
 	mv resume.pdf Ian_M_Lewis_Resume.pdf
 
 ## Maintenance

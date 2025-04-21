@@ -1,1 +1,0 @@
-third_party/csuros@cs.yale.edu/resume.cls
