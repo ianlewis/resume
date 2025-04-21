@@ -35,6 +35,8 @@ permissions: {}
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # To upload to the release.
     outputs:
       digests: ${{ steps.hash.outputs.digests }}
 
