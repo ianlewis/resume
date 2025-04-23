@@ -339,6 +339,9 @@ chktex: ## Runs the chktex linter.
 Ian_M_Lewis_Resume.pdf: Ian_M_Lewis_Resume.tex ## Create resume PDF
 	@lualatex -file-line-error -halt-on-error $<
 
+Ian_M_Lewis_Resume.ja.pdf: Ian_M_Lewis_Resume.ja.tex ## Create resume PDF
+	@lualatex -file-line-error -halt-on-error $<
+
 ## Maintenance
 #####################################################################
 

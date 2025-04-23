@@ -22,6 +22,7 @@
       "language": "en",
       "skipPatterns": [
         "CHANGELOG",
+        "CalVer",
         "CodeQL",
         "Changelog",
         "CODEOWNER",
@@ -34,8 +35,10 @@
         "MacOS",
         "Makefile",
         "Node.js",
+        "NPO",
         "OpenSSF",
         "UI",
+        "POS",
         "PR",
         "YAML",
         "/[Ff]ormatter/",
