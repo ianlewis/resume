@@ -26,6 +26,33 @@ permissions:
   contents: read # Needed to check out the repo.
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Build artifacts
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-luatex \
+            texlive-lang-japanese
+      - run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Ian_M_Lewis_Resume.pdf
+          retention-days: 14
+          path: Ian_M_Lewis_Resume.pdf
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Ian_M_Lewis_Resume.ja.pdf
+          retention-days: 14
+          path: Ian_M_Lewis_Resume.ja.pdf
+
   # Check license headers
   ###############################
   license-headers:
@@ -33,10 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          submodules: true
           persist-credentials: false
-      - run: |
-          echo "${GITHUB_WORKSPACE}/autogen" >> "${GITHUB_PATH}"
       - run: |
           git config user.name "Unknown"
           make license-headers
