@@ -57,7 +57,8 @@ jobs:
           sudo apt install -y \
             texlive-latex-base \
             texlive-latex-extra \
-            texlive-luatex
+            texlive-luatex \
+            texlive-lang-japanese
       - run: |
           make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
 
