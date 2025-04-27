@@ -92,6 +92,7 @@ jobs:
       - name: check diff
         run: |
           set -euo pipefail
+          ls -lh package.json package-lock.json
           if [ "$(GIT_PAGER="cat" git diff --ignore-space-at-eol | wc -l)" -gt "0" ]; then
               echo "Detected formatting changes.  See status below:"
               echo "::group::git diff"
