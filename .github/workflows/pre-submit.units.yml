@@ -35,16 +35,21 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Build artifacts
+      - name: Build PDF
+        env:
+          DOCKER_IMAGE: ghcr.io/ianlewis/texlive-lualatex
+          # renovate: datasource=docker depName=ghcr.io/ianlewis/texlive-lualatex versioning=loose
+          DOCKER_IMAGE_VERSION: v1.0.0@sha256:32a9406f179addc78c6953920dd131238f0a69a5b0cc5aee0d4fc69e1098ffda
         run: |
-          sudo apt update
-          sudo apt install -y \
-            texlive-latex-base \
-            texlive-latex-extra \
-            texlive-luatex \
-            texlive-lang-japanese
-
-      - run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
+          set -euo pipefail
+          for f in Ian_M_Lewis_Resume.tex Ian_M_Lewis_Resume.ja.tex; do
+            docker run  \
+              --rm \
+              -v "${GITHUB_WORKSPACE}:/work" \
+              -w /work \
+              "${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}" \
+              lualatex -file-line-error -halt-on-error "$f"
+          done
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         id: upload
@@ -62,7 +67,7 @@ jobs:
           PULL_REQUEST_NUM: ${{ github.event.pull_request.number }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment "${PULL_REQUEST_NUM}" --create-if-none --edit-last --body "### ✅ Build Preview
+          gh pr comment "${PULL_REQUEST_NUM}" -R "${GITHUB_REPOSITORY}" --create-if-none --edit-last --body "### ✅ Build Preview
 
           | Files | Link |
           |-------|------|
