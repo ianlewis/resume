@@ -12,29 +12,21 @@
     // https://aquaproj.github.io/docs/guides/renovate/
     "github>aquaproj/aqua-renovate-config#2.7.5",
   ],
-
-  // Security alerts/updates happen more frequently.
   vulnerabilityAlerts: {
     schedule: "* 0-4 * * *",
   },
-
-  // Create a new issue for each config warning. By default, Renovate re-opens
-  // an existing issue which can be very old and is easily missed. Opening new
-  // issues is more intuitive.
   configWarningReuseIssue: false,
-
-  // Update the Aqua version set in the Makefile.
   customManagers: [
     {
       customType: "regex",
-      fileMatch: ["Makefile"],
-      matchStrings: ["AQUA_VERSION \??= *(?<currentValue>\\S+)"],
+      managerFilePatterns: ["/Makefile/"],
+      matchStrings: ["AQUA_VERSION \\??= *(?<currentValue>\\S+)"],
       depNameTemplate: "aquaproj/aqua",
       datasourceTemplate: "github-releases",
     },
     {
       customType: "regex",
-      fileMatch: [".*y[a]?ml$"],
+      managerFilePatterns: ["/.*y[a]?ml$/"],
       matchStrings: [
         // for the version on the left part, ignoring the right
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+?:(?<currentValue>\\S+)\\s+\\S+:.+",
