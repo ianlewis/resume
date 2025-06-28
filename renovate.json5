@@ -4,46 +4,55 @@
     // Use the best-practices preset. Adds options to pin dependencies.
     // https://docs.renovatebot.com/upgrade-best-practices/#whats-in-the-configbest-practices-preset
     "config:best-practices",
+
     // Update dependencies monthly
     "schedule:monthly",
+
     // Add DCO sign-off
     ":gitSignOff",
+
     // Add Aqua present to allow updating CLI tools.
     // https://aquaproj.github.io/docs/guides/renovate/
-    "github>aquaproj/aqua-renovate-config#2.7.5",
+    "github>aquaproj/aqua-renovate-config#2.8.1",
+
+    // Update version numbers in Makefile.
+    // https://docs.renovatebot.com/presets-customManagers/#custommanagersmakefileversions
+    "customManagers:makefileVersions",
   ],
+
+  // Security alerts/updates happen more frequently.
   vulnerabilityAlerts: {
     schedule: "* 0-4 * * *",
   },
+
+  // Create a new issue for each config warning. By default, Renovate re-opens
+  // an existing issue which can be very old and is easily missed. Opening new
+  // issues is more intuitive.
   configWarningReuseIssue: false,
-  customManagers: [
-    {
-      customType: "regex",
-      managerFilePatterns: ["/Makefile/"],
-      matchStrings: ["AQUA_VERSION \\??= *(?<currentValue>\\S+)"],
-      depNameTemplate: "aquaproj/aqua",
-      datasourceTemplate: "github-releases",
-    },
-    {
-      customType: "regex",
-      managerFilePatterns: ["/.*y[a]?ml$/"],
-      matchStrings: [
-        // for the version on the left part, ignoring the right
-        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+?:(?<currentValue>\\S+)\\s+\\S+:.+",
-        // for the version on the right part, ignoring the left
-        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+?:\\S+\\s+\\S+:(?<currentValue>\\S+)",
-      ],
-      versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
-    },
-  ],
 
   // Group various ecosystem updates. Security updates are always separate.
   packageRules: [
     {
-      matchManagers: ["github-actions"],
       matchUpdateTypes: ["minor", "patch"],
+      groupName: "aqua",
+      matchFileNames: [".aqua.yaml", ".aqua-checksums.yaml"],
+    },
+    {
+      matchUpdateTypes: ["minor", "patch"],
+      groupName: "makefile",
+      matchFileNames: ["Makefile"],
+    },
+    {
+      matchManagers: ["github-actions"],
       groupName: "github-actions",
       pinDigests: true,
+      matchPackageNames: ["!slsa-framework/slsa-github-generator"],
+    },
+    {
+      matchManagers: ["github-actions"],
+      matchPackageNames: ["slsa-framework/slsa-github-generator"],
+      groupName: "github-actions",
+      pinDigests: false,
     },
     {
       matchManagers: ["pip_requirements"],

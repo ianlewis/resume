@@ -1,0 +1,115 @@
+# Copyright 2025 Ian Lewis
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+plugin:
+  - id: "@textlint/textlint-plugin-latex2e"
+  - id: "@textlint/textlint-plugin-text"
+  - id: "@textlint/textlint-plugin-markdown"
+plugins:
+  - "latex2e"
+filters:
+  comments: true
+rules:
+  spelling:
+    language: "en"
+    skipPatterns:
+      # Company names
+      - "BeProud"
+      - "Datatel" # Higher education software company
+      - "Ellucian" # Higher education software company
+
+      # Place names
+      - "Fairfax" # Fairfax, Virginia
+      - "Bridgewater" # Bridgewater, Virginia
+
+      # Event names
+      - "KubeCon" # Kubernetes conference
+      - "EuroPython" # European Python conference
+      - "PyCon" # Python conference
+
+      # OSS projects/technologies
+      - "Backbone.js" # JavaScript framework
+      - "CoffeeScript" # JavaScript dialect
+      - "Containerd" # Container runtime
+      - "Knative" # Kubernetes-native serverless framework
+      - "Kubernetes" # Container orchestration platform
+      - "Netlink" # Network management for Linux
+      - "RequireJS" # JavaScript module loader
+      - "Seccomp" # Linux kernel security module
+      - "Sigstore" # OpenSSF Sigstore project
+      - "gVisor" # Google Cloud gVisor project
+      - "minikube" # Lightweight Kubernetes cluster
+      - "procfs" # Linux kernel proc filesystem
+
+      # Product names
+      - "Bigtable" # Google Cloud Bigtable
+      - "Connpass" # Event management platform
+      - "SIPSS" # Point of Sale Software
+      - "npm" # Node Package Manager
+
+      # Acronyms
+      - "ABI" # Application Binary Interface
+      - "API" # Application Programming Interface
+      - "BPF" # Berkeley Packet Filter
+      - "CFP" # Call for Papers
+      - "GDE" # Google Developer Expert
+      - "GKE" # Google Kubernetes Engine
+      - "NPO" # Non-Profit Organization
+      - "OCI" # Open Container Initiative
+      - "POS" # Point of Sale
+      - "SLSA" # Supply Chain Levels for Software Artifacts
+      - "SSO" # Single Sign-On
+      - "XML:FO" # XML Formatting Objects
+
+      # Technical terms
+      - "CalVer" # Calendar Versioning
+      - "/[Aa]ddon/"
+      - "/[Bb]ackend/"
+      - "/[Cc]ustomizability/"
+      - "/[Ff]rontend/"
+      - "/[Ss]tylesheet/"
+      - "/[Uu]ntrusted/"
+
+      - "CHANGELOG"
+      - "CODEOWNER"
+      - "CLI"
+      - "CVSS"
+      - "DCO"
+      - "PR"
+      - "UI"
+      - "YAML"
+      - "Changelog"
+      - "CodeQL"
+      - "Dependabot"
+      - "JavaScript"
+      - "MacOS"
+      - "Makefile"
+      - "Node.js"
+      - "OpenSSF"
+      - "TODO"
+      - "e2e"
+      - "/[Ff]ormatter/"
+      - "/[Ll]inter/"
+      - "/[Pp]re/"
+      - "/[Rr]eproducibility/"
+      - "/[Rr]uleset/"
+      - "/[Rr]untime/"
+      - "/[Ss]exualized/"
+      - "/[Ss]ocio-economic/"
+      - "/[Uu]serspace/"
+      - "/[Vv]endored/"
+      - "/[Vv]irtualenv/"
+      - "/v[0-9]+/"
+      - "/[0-9]+/"
+      - ":white_check_mark:"
