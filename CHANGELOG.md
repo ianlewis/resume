@@ -13,5 +13,5 @@ and this project adheres to [CalVer](https://calver.org/).
 
 - Initial release
 
-[2025.04.27]: https://github.com/ianlewis/repo-template/releases/tag/2025.04.27
-[2025.04.21]: https://github.com/ianlewis/repo-template/releases/tag/2025.04.21
+[2025.04.27]: https://github.com/ianlewis/resume/releases/tag/2025.04.27
+[2025.04.21]: https://github.com/ianlewis/resume/releases/tag/2025.04.21

@@ -13,15 +13,73 @@
 # limitations under the License.
 
 plugin:
+  - id: "@textlint/textlint-plugin-latex2e"
   - id: "@textlint/textlint-plugin-text"
   - id: "@textlint/textlint-plugin-markdown"
+plugins:
+  - "latex2e"
 filters:
   comments: true
 rules:
   spelling:
     language: "en"
     skipPatterns:
+      # Company names
+      - "BeProud"
+      - "Datatel" # Higher education software company
+      - "Ellucian" # Higher education software company
+
+      # Place names
+      - "Fairfax" # Fairfax, Virginia
+      - "Bridgewater" # Bridgewater, Virginia
+
+      # Event names
+      - "KubeCon" # Kubernetes conference
+      - "EuroPython" # European Python conference
+      - "PyCon" # Python conference
+
+      # OSS projects/technologies
+      - "Backbone.js" # JavaScript framework
+      - "CoffeeScript" # JavaScript dialect
+      - "Containerd" # Container runtime
+      - "Knative" # Kubernetes-native serverless framework
+      - "Kubernetes" # Container orchestration platform
+      - "Netlink" # Network management for Linux
+      - "RequireJS" # JavaScript module loader
+      - "Seccomp" # Linux kernel security module
+      - "Sigstore" # OpenSSF Sigstore project
+      - "gVisor" # Google Cloud gVisor project
+      - "minikube" # Lightweight Kubernetes cluster
+      - "procfs" # Linux kernel proc filesystem
+
+      # Product names
+      - "Bigtable" # Google Cloud Bigtable
+      - "Connpass" # Event management platform
+      - "SIPSS" # Point of Sale Software
+      - "npm" # Node Package Manager
+
+      # Acronyms
+      - "ABI" # Application Binary Interface
+      - "API" # Application Programming Interface
+      - "BPF" # Berkeley Packet Filter
+      - "CFP" # Call for Papers
+      - "GDE" # Google Developer Expert
+      - "GKE" # Google Kubernetes Engine
+      - "NPO" # Non-Profit Organization
+      - "OCI" # Open Container Initiative
+      - "POS" # Point of Sale
+      - "SLSA" # Supply Chain Levels for Software Artifacts
+      - "SSO" # Single Sign-On
+      - "XML:FO" # XML Formatting Objects
+
+      # Technical terms
       - "CalVer" # Calendar Versioning
+      - "/[Aa]ddon/"
+      - "/[Bb]ackend/"
+      - "/[Cc]ustomizability/"
+      - "/[Ff]rontend/"
+      - "/[Ss]tylesheet/"
+      - "/[Uu]ntrusted/"
 
       - "CHANGELOG"
       - "CODEOWNER"
