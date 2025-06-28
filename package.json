@@ -1,16 +1,13 @@
 {
-  "engines": {
-    "node": ">=22.0.0 <23"
-  },
   "devDependencies": {
     "dictionary-en": "4.0.0",
-    "markdownlint-cli": "0.44.0",
+    "markdownlint-cli": "0.45.0",
     "prettier": "3.5.3",
-    "renovate": "40.11.2",
+    "renovate": "40.49.7",
     "semantic-release": "^24.2.3",
-    "textlint": "14.5.0",
+    "textlint": "14.8.0",
     "textlint-filter-rule-comments": "1.2.2",
-    "textlint-plugin-latex2e": "^1.2.1",
+    "textlint-plugin-latex2e": "1.2.1",
     "textlint-rule-spelling": "0.3.0"
   }
 }

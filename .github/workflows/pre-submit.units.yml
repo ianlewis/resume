@@ -99,6 +99,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          submodules: true
           persist-credentials: false
       - run: |
           git config user.name "Unknown"
@@ -123,11 +124,10 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version-file: "package.json"
-      - run: |
-          make format
+          node-version-file: ".node-version"
+      - run: make format
       - name: check diff
         run: |
           set -euo pipefail
@@ -142,6 +142,15 @@ jobs:
   # linters
   ###############################
 
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: actionlint
+        run: make actionlint
+
   chktex:
     runs-on: ubuntu-latest
     permissions:
@@ -155,14 +164,57 @@ jobs:
           sudo apt-get install -y chktex
       - run: make chktex
 
-  actionlint:
+  markdownlint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: actionlint
-        run: make actionlint
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: ".node-version"
+      - run: make markdownlint
+
+  renovate-config-validator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: ".node-version"
+      - run: make renovate-config-validator
+
+  textlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: ".node-version"
+      - run: make textlint
+
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version-file: ".python-version"
+      - run: make yamllint
+
+  fixme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - run: make fixme
 
   zizmor:
     runs-on: ubuntu-latest
@@ -178,7 +230,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: SARIF file
           path: results.sarif
@@ -188,84 +240,7 @@ jobs:
         # NOTE: Uploading SARIF requires GitHub Enterprise and GitHub Advanced Security license for private repositories.
         # TODO: Remove the next line for private repositories with GitHub Advanced Security.
         if: github.event.repository.private == false
-        uses: github/codeql-action/upload-sarif@6bb031afdd8eb862ea3fc1848194185e076637e5 # v3.28.11
+        uses: github/codeql-action/upload-sarif@fca7ace96b7d713c7035871441bd52efbe39e27e # v3.28.19
         with:
           sarif_file: zizmor.sarif.json
           category: zizmor
-
-  markdownlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
-        with:
-          node-version-file: "package.json"
-      - run: make markdownlint
-
-  renovate-config-validator:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
-        with:
-          node-version-file: "package.json"
-      - run: make renovate-config-validator
-
-  textlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
-        with:
-          node-version-file: "package.json"
-      - run: make textlint
-
-  yamllint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - run: make yamllint
-
-  todos:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - name: "Install slsa-verifier"
-        env:
-          SLSA_VERIFIER_VERSION: "2.7.0"
-          SLSA_VERIFIER_CHECKSUM: "499befb675efcca9001afe6e5156891b91e71f9c07ab120a8943979f85cc82e6"
-        run: |
-          # Install slsa-verifier
-          curl -sSLo slsa-verifier "https://github.com/slsa-framework/slsa-verifier/releases/download/v${SLSA_VERIFIER_VERSION}/slsa-verifier-linux-amd64"
-          echo "slsa-verifier checksum is $(sha256sum slsa-verifier | awk '{ print $1 }')"
-          echo "expected checksum is ${SLSA_VERIFIER_CHECKSUM}"
-          echo "${SLSA_VERIFIER_CHECKSUM}  slsa-verifier" | sha256sum --strict --check --status || exit 1
-
-          chmod +x ./slsa-verifier
-          mv ./slsa-verifier /usr/local/bin
-      - name: "Install todos"
-        env:
-          TODOS_VERSION: "0.12.0"
-        run: |
-          # Install todos
-          curl -sSLo todos "https://github.com/ianlewis/todos/releases/download/v${TODOS_VERSION}/todos-linux-amd64"
-          curl -sSLo todos.intoto.jsonl "https://github.com/ianlewis/todos/releases/download/v${TODOS_VERSION}/todos-linux-amd64.intoto.jsonl"
-          slsa-verifier verify-artifact todos --provenance-path todos.intoto.jsonl --source-uri github.com/ianlewis/todos --source-tag "v${TODOS_VERSION}"
-
-          chmod +x ./todos
-          mv ./todos /usr/local/bin
-          result=$(todos --output github --todo-types="FIXME,Fixme,fixme,BUG,Bug,bug,XXX,COMBAK")
-          if [ -n "${result}" ]; then
-            echo "${result}"
-            exit 1
-          fi
