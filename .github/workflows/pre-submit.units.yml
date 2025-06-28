@@ -31,6 +31,21 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: Write comment to PR
+        if: github.event_name == 'pull_request'
+        env:
+          PULL_REQUEST_NUM: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment "${PULL_REQUEST_NUM}" -R "${GITHUB_REPOSITORY}" \
+            --create-if-none \
+            --edit-last \
+            --body "### 👷 Build preview processing...
+
+          | Files | Link |
+          |-------|------|
+          | 🗎 Ian_M_Lewis_Resume.pdf<br>🗎 Ian_M_Lewis_Resume.ja.pdf | Building... | "
+
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
@@ -67,7 +82,10 @@ jobs:
           PULL_REQUEST_NUM: ${{ github.event.pull_request.number }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment "${PULL_REQUEST_NUM}" -R "${GITHUB_REPOSITORY}" --create-if-none --edit-last --body "### ✅ Build Preview
+          gh pr comment "${PULL_REQUEST_NUM}" -R "${GITHUB_REPOSITORY}" \
+            --create-if-none \
+            --edit-last \
+            --body "### ✅ Build preview ready
 
           | Files | Link |
           |-------|------|
