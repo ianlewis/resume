@@ -17,3 +17,6 @@ node_modules/
 *.dvi
 *.pdf
 *.out
+
+# budoux-latex style temporary files
+_budoux-*.txt

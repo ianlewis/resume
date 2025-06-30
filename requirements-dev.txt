@@ -79,3 +79,9 @@ PyYAML==6.0.2 \
     --hash=sha256:efdca5630322a10774e8e98e1af481aad470dd62c3170801852d752aa7a783ba \
     --hash=sha256:f753120cb8181e736c57ef7636e83f31b9c0d1722c516f7e86cf15b7aa57ff12 \
     --hash=sha256:ff3824dc5261f50c9b0dfb3be22b4567a6f938ccce4587b38952d85fd9e9afe4
+budoux==0.7.0 \
+    --hash=sha256:1cb6f4ba1b5b100883147c1fb16ceacdb3d09adf077c82421788c2e170f792ba \
+    --hash=sha256:c71f777bf49dd8bffe5fe8234e18a02a7bcbbbbdf60f7c42cefb457e5f87ea05
+importlib-resources==6.5.2 \
+    --hash=sha256:185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c \
+    --hash=sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec

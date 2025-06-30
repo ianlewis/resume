@@ -104,10 +104,19 @@ $(AQUA_ROOT_DIR)/.installed: .aqua.yaml .bin/aqua-$(AQUA_VERSION)/aqua
 #####################################################################
 
 Ian_M_Lewis_Resume.pdf: Ian_M_Lewis_Resume.tex ## Create resume PDF
-	@lualatex -file-line-error -halt-on-error $<
+	@lualatex \
+		--file-line-error \
+		--halt-on-error \
+		$<
 
-Ian_M_Lewis_Resume.ja.pdf: Ian_M_Lewis_Resume.ja.tex ## Create resume PDF
-	@lualatex -file-line-error -halt-on-error $<
+Ian_M_Lewis_Resume.ja.pdf: Ian_M_Lewis_Resume.ja.tex .venv/.installed ## Create resume PDF
+	@set -euo pipefail; \
+		PATH="$(REPO_ROOT)/.venv/bin:$${PATH}"; \
+		lualatex \
+			--file-line-error \
+			--halt-on-error \
+			--shell-escape \
+			$<
 
 ## Tools
 #####################################################################
