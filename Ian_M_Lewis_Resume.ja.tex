@@ -7,7 +7,6 @@
 \usepackage{titlesec}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{fontspec}
-\usepackage{third_party/ianlewis/budoux-latex/budoux}
 
 \defaultfontfeatures{RawFeature={+axis={wght=300}}}
 \setmainfont[
@@ -28,6 +27,60 @@
 }{}{0em}{}[
     \color{black}\titlerule
 ]
+
+\usepackage{xparse}
+\usepackage{shellesc}
+
+\ExplSyntaxOn
+
+\iow_new:N \l__orig_file_stream
+
+
+\cs_new:Npn \__write_orig_file:nn #1 #2 {
+  \iow_open:Nn \l__orig_file_stream { #1 }
+  \iow_now:Nn \l__orig_file_stream { #2 }
+  \iow_close:N \l__orig_file_stream
+}
+
+\iow_new:N \l__processed_file_stream
+\tl_new:N \l__processed_tl
+
+\cs_new:Npn \__read_processed_file:n #1 {
+  \tl_clear:N \l__processed_tl
+  \ior_open:Nn \l__processed_file_stream { #1 }
+  \ior_map_inline:Nn \l__processed_file_stream {
+    \tl_put_right:Nn \l__processed_tl { ##1 }
+  }
+  \ior_close:N \l__processed_file_stream
+}
+
+\newcommand{\writeorigfile}[2]{
+  \__write_orig_file:nn { #1 } { #2 }
+}
+
+\newcommand{\readprocessedfile}[2]{
+  \__read_processed_file:n { #1 }
+
+  % Insert the processed text into the document.
+  \tl_use:N \l__processed_tl
+}
+
+\ExplSyntaxOff
+
+\NewDocumentCommand{\budoux}{O{\raggedright} m}{{%
+  \newcommand\origfile{_budoux-\jobname-original.txt}%
+  \newcommand\processedfile{_budoux-\jobname-processed.txt}%
+
+  \writeorigfile{\origfile}{#2}%
+
+  \ShellEscape{export LC_ALL=C.UTF-8; cat \origfile | ./.venv/bin/python ./run_budoux.py > \processedfile}%
+  % #1%
+
+  \readprocessedfile{\processedfile}%
+
+  \ShellEscape{rm \origfile}%
+  \ShellEscape{rm \processedfile}%
+}}
 
 \begin{document}
 
@@ -68,7 +121,7 @@
 \end{flushleft}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\leftmargin}{0cm}    % no extra left margin before bullets
     \setlength{\parsep}{0cm}
 }
     \item \textbf{テクノロジー:} コンテナセキュリティ、分散システム設計、Linuxシステムプログラミング
@@ -81,7 +134,7 @@
 \section{職務経歴}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\leftmargin}{0cm}    % no extra left margin before bullets
     \setlength{\parsep}{0.15cm}
 }
 
@@ -387,7 +440,7 @@
 \section{コミュニティ活動}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\leftmargin}{0cm}    % no extra left margin before bullets
     \setlength{\parsep}{0.15cm}
 }
     \item \textbf{\large Kubernetes Meetup Tokyo} (2016年--2020年)
@@ -427,7 +480,7 @@
 \section{学歴}
 
 \begin{list}{}{
-    \setlength{\leftmargin}{0cm}	% no extra left margin before bullets
+    \setlength{\leftmargin}{0cm}    % no extra left margin before bullets
     \setlength{\parsep}{0.15cm}
 }
 \item \textbf{Bridgewater College} --- \emph{Bridgewater, VA}\\
