@@ -61,8 +61,8 @@ jobs:
           TEXLIVE_EXTRA_VERSION: "2023.20240207-1"
           TEXLIVE_LANG_VERSION: "2023.20240207-1"
         run: |
-          apt-get update
-          apt-get install -y \
+          sudo apt-get update
+          sudo apt-get install -y \
             --no-install-recommends \
             texlive-latex-base=${TEXLIVE_BASE_VERSION} \
             texlive-pictures=${TEXLIVE_BASE_VERSION} \
