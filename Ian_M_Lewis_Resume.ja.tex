@@ -7,6 +7,7 @@
 \usepackage{titlesec}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{fontspec}
+\usepackage{third_party/ianlewis/budoux-latex/budoux}
 
 \defaultfontfeatures{RawFeature={+axis={wght=300}}}
 \setmainfont[
@@ -57,14 +58,13 @@
 \setlength{\topsep}{0in}
 
 \begin{flushleft}
-% I am an engineering leader with over 20 years of development experience with a
-% focus on cloud-native infrastructure, defensive security, and developer
-% experience. A resident of Japan since 2006, I believe that software should be
-% accessible to everyone, and I have a strong interest in mentorship, education,
-% and building a welcoming engineering culture. I am interested in working on high
-% impact projects for highly technical globally-minded companies.
-クラウドネイティブインフラストラクチャ、ディフェンシブセキュリティ、デベロッパーエクスペリエンスの分野で20年以上の開発経験を持つエンジニアリングリーダーです。2006年から日本に在住し、「ソフトウェアは誰もがアクセスできるべきである」という信念を持っています。メンターシップ、教育、そして誰もが歓迎されるインクルーシブなエンジニアリング文化の醸成に情熱を注いでいます。技術力の高いグローバル企業において、影響力の大きいプロジェクトへ貢献することを希望しています。
-
+    % I am an engineering leader with over 20 years of development experience with a
+    % focus on cloud-native infrastructure, defensive security, and developer
+    % experience. A resident of Japan since 2006, I believe that software should be
+    % accessible to everyone, and I have a strong interest in mentorship, education,
+    % and building a welcoming engineering culture. I am interested in working on high
+    % impact projects for highly technical globally-minded companies.
+    \budoux{クラウドネイティブインフラストラクチャ、ディフェンシブセキュリティ、デベロッパーエクスペリエンスの分野で20年以上の開発経験を持つエンジニアリングリーダーです。2006年から日本に在住し、「ソフトウェアは誰もがアクセスできるべきである」という信念を持っています。メンターシップ、教育、そして誰もが歓迎されるインクルーシブなエンジニアリング文化の醸成に情熱を注いでいます。技術力の高いグローバル企業において、影響力の大きいプロジェクトへ貢献することを希望しています。}
 \end{flushleft}
 
 \begin{list}{}{
@@ -90,7 +90,7 @@
     % Google Cloud is Google's cloud computing platform along with supporting APIs
     % and services. As a member of Google Cloud, I led Cloud-Native and
     % Open-Source Supply Chain Security developer tooling and outreach efforts.
-    Google Cloudは、Googleのクラウドコンピューティングプラットフォームです。Google Cloudの一員として、クラウドネイティブおよびオープンソースのサプライチェーンセキュリティ関連の開発者向けツール開発とアウトリーチ活動を主導しました。
+    \budoux{Google Cloudは、Googleのクラウドコンピューティングプラットフォームです。Google Cloudの一員として、クラウドネイティブおよびオープンソースのサプライチェーンセキュリティ関連の開発者向けツール開発とアウトリーチ活動を主導しました。}
 
     \begin{itemize}
 
@@ -101,30 +101,30 @@
             % open-source developer tooling in the form of a provenance generator
             % and verification tools for GitHub Actions supporting npm packages
             % and generic binary artifacts.
-            SLSAは、ソフトウェアサプライチェーン攻撃からソフトウェアを保護するためのベストプラクティスと管理策を提供するフレームワークです。GitHub Actions向けの、npmパッケージおよび汎用アーティファクトの来歴（Provenance）を生成・検証するオープンソースツールの開発を担当しました。
+            \budoux{SLSAは、ソフトウェアサプライチェーン攻撃からソフトウェアを保護するためのベストプラクティスと管理策を提供するフレームワークです。GitHub Actions向けの、npmパッケージおよび汎用アーティファクトの来歴（Provenance）を生成・検証するオープンソースツールの開発を担当しました。}
 
         \begin{itemize}
 
             % \item Developed the Node.js SLSA builder for GitHub Actions and
             %     partnered GitHub to integrate with the official npm
             %     registry.\footnote{https://github.com/slsa-framework/slsa-github-generator/}
-            \item SLSAに対応したGitHub Actions向けのNode.js CIビルダー\footnote{https://github.com/slsa-framework/slsa-github-generator/}を開発し、GitHub・npmの開発者との連携のもと、公式npmレジストリに統合しました。
+            \item \budoux{SLSAに対応したGitHub Actions向けのNode.js CIビルダーを開発し、GitHub・npmの開発者との連携のもと、公式npmレジストリに統合しました。}\footnote{https://github.com/slsa-framework/slsa-github-generator/}
 
             % \item Designed and developed the SLSA Generic generator for GitHub
             %     Actions with an emphasis on user experience, allowing for the
             %     addition of SLSA provenance generation by simply adding a new job
             %     step to an existing GitHub Actions workflow.
-            \item ユーザーエクスペリエンスを重視し、既存のGitHub Actionsワークフローに数ステップを追加するだけで来歴を生成できる、SLSA汎用ジェネレーターを設計・開発しました。
+            \item \budoux{ユーザーエクスペリエンスを重視し、既存のGitHub Actionsワークフローに数ステップを追加するだけで来歴を生成できる、SLSA汎用ジェネレーターを設計・開発しました。}
 
             % \item Contributed key features to underlying SLSA generation
             %     framework allowing open-source projects to implement their own
             %     secure builders and provenance generation.
-            \item 基盤となるSLSA生成フレームワークに主要機能を提供し、オープンソースプロジェクトが独自のセキュアビルダーと来歴生成を実装可能にしました。
+            \item \budoux{基盤となるSLSA生成フレームワークに主要機能を提供し、オープンソースプロジェクトが独自のセキュアビルダーと来歴生成を実装可能にしました。}
 
             % \item Refactored verification tooling to support multiple artifact
             %     types including OCI images, npm packages, and generic binary
             %     artifacts.\footnote{https://github.com/slsa-framework/slsa-verifier/}
-            \item OCIイメージ、npmパッケージ、汎用アーティファクトなど、複数のアーティファクトタイプに対応できるよう、検証ツールをリファクタリングしました。
+            \item \budoux{OCIイメージ、npmパッケージ、汎用アーティファクトなど、複数のアーティファクトタイプに対応できるよう、検証ツールをリファクタリングしました。}
 
             % \item Authored security policy for SLSA tooling and supported the
             %     handling of security vulnerability reports including
@@ -135,12 +135,12 @@
             %     chain security education and outreach efforts including
             %     documentation and presentations at Open Source Summit and Google
             %     Cloud Next.
-            \item Open Source SummitやGoogle Cloud Nextでの発表、ドキュメント作成を含む、SLSA、OpenSSF Sigstore、ソフトウェアサプライチェーンセキュリティ関連の教育・アウトリーチ活動に貢献しました。
+            \item \budoux{Open Source SummitやGoogle Cloud Nextでの発表、ドキュメント作成を含む、SLSA、OpenSSF Sigstore、ソフトウェアサプライチェーンセキュリティ関連の教育・アウトリーチ活動に貢献しました。}
 
             % \item Was awarded the Technical Infrastructure Tech Impact
             %     award in 2023 and Google-wide Tech Impact Award in 2024 for
             %     my work on SLSA and supply chain security.
-            \item SLSAおよびサプライチェーンセキュリティ関連の功績により、2023年Technical Infrastructure Tech Impact賞、2024年Google全社Tech Impact賞を受賞しました。
+            \item \budoux{SLSAおよびサプライチェーンセキュリティ関連の功績により、2023年Technical Infrastructure Tech Impact賞、2024年Google全社Tech Impact賞を受賞しました。}
 
         \end{itemize}
 
@@ -154,40 +154,40 @@
             % Linux ABI compatible userspace kernel written in Go. I was
             % responsible for the open-source launch, outreach, and ongoing
             % development of gVisor and Google Kubernetes Engine (GKE) Sandbox.
-            gVisorは、コンテナがシステムに与える影響を最小限にし、安全に動かすサンドボックス型ランタイムです。Goで書かれたLinux ABI互換のユーザースペースカーネルとして実装されています。gVisorおよびGoogle Kubernetes Engine (GKE) Sandboxのオープンソースローンチ、アウトリーチ、継続的な開発を担当しました。
+            \budoux{gVisorは、コンテナがシステムに与える影響を最小限にし、安全に動かすサンドボックス型ランタイムです。Goで書かれたLinux ABI互換のユーザースペースカーネルとして実装されています。gVisorおよびGoogle Kubernetes Engine (GKE) Sandboxのオープンソースローンチ、アウトリーチ、継続的な開発を担当しました。}
 
         \begin{itemize}
 
             % \item Made major improvements to gVisor in the areas of Linux kernel
             %     compatibility including Netlink, Linux pipes, and procfs.
-            \item Netlink、Linuxパイプ、procfsなど、Linuxカーネル互換性の分野でgVisorに大幅な改善を加えました。
+            \item \budoux{Netlink、Linuxパイプ、procfsなど、Linuxカーネル互換性の分野でgVisorに大幅な改善を加えました。}
 
             % \item Implemented OCI Seccomp support including overhauling gVisor's
             %     BPF program generation.
-            \item gVisorのBPFプログラム生成の全面改修を含むOCI Seccomp機能を実装しました。
+            \item \budoux{gVisorのBPFプログラム生成の全面改修を含むOCI Seccomp機能を実装しました。}
 
             % \item Implemented the gVisor minikube addon allowing for easier
             %     local
             %     testing.\footnote{https://minikube.sigs.k8s.io/docs/handbook/addons/gvisor/}
-            \item ローカルテストを容易にするgVisor minikubeアドオンを実装しました\footnote{https://minikube.sigs.k8s.io/docs/handbook/addons/gvisor/}。
+            \item \budoux{ローカルテストを容易にするgVisor minikubeアドオンを実装しました}\footnote{https://minikube.sigs.k8s.io/docs/handbook/addons/gvisor/}。
 
             % \item Implemented automated generation of gVisor's system call
             %     compatibility
             %     documentation.\footnote{https://gvisor.dev/docs/user\_guide/compatibility/linux/amd64/}
-            \item gVisorのシステムコール互換性ドキュメントの自動生成を実装しました\footnote{https://gvisor.dev/docs/user\_guide/compatibility/linux/amd64/}。
+            \item \budoux{gVisorのシステムコール互換性ドキュメントの自動生成を実装しました}\footnote{https://gvisor.dev/docs/user\_guide/compatibility/linux/amd64/}。
 
             % \item Implemented RuntimeClass support in
             %     Knative\footnote{https://knative.dev/docs/serving/configuration/feature-flags/\#kubernetes-runtime-class}
             %     allowing for gVisor to be used as a sandbox for Knative
             %     workloads.\footnote{https://gvisor.dev/docs/tutorials/knative/}
-            \item KnativeにRuntimeClassサポート\footnote{https://knative.dev/docs/serving/configuration/feature-flags/\#kubernetes-runtime-class}を実装し、KnativeワークロードのサンドボックスとしてgVisorを使用可能にしました\footnote{https://gvisor.dev/docs/tutorials/knative/}。
+            \item \budoux{KnativeにRuntimeClassサポートを実装し、KnativeワークロードのサンドボックスとしてgVisorを使用可能にしました}\footnote{https://gvisor.dev/docs/tutorials/knative/}。
 
             % \item Led the open-source gVisor project launch including demos,
             %     videos, documentation, reviewing outside open-source
             %     contributions, and presentations at events like KubeCon and
             %     Google Cloud
             %     Next.
-            \item デモ、ビデオ、ドキュメント作成、外部からのオープンソースコントリビューションのレビュー、KubeConやGoogle Cloud Nextなどのイベントでのプレゼンテーションを含む、オープンソースgVisorプロジェクトのローンチを主導しました\footnote{https://www.youtube.com/watch?v=kxUZ4lVFuVo}。
+            \item \budoux{デモ、ビデオ、ドキュメント作成、外部からのオープンソースコントリビューションのレビュー、KubeConやGoogle Cloud Nextなどのイベントでのプレゼンテーションを含む、オープンソースgVisorプロジェクトのローンチを主導しました}\footnote{https://www.youtube.com/watch?v=kxUZ4lVFuVo}。
 
         \end{itemize}
 
@@ -201,23 +201,23 @@
             % customers and product teams to identify areas where the developer
             % experience could be improved and collaborated with engineering teams
             % to implement those improvements.
-            Google Cloudのコンテナおよびセキュリティ製品の開発者エクスペリエンスとプロダクトアダプションを担当し、顧客および製品チームとの協力で、デベロッパーエクスペリエンス改善領域を特定、エンジニアリングチームと連携して改善策を実装しました。
+            \budoux{Google Cloudのコンテナおよびセキュリティ製品の開発者エクスペリエンスとプロダクトアダプションを担当し、顧客および製品チームとの協力で、デベロッパーエクスペリエンス改善領域を特定、エンジニアリングチームと連携して改善策を実装しました。}
 
         \begin{itemize}
 
             % \item Developed and executed a Customer Empathy workshop program
             %     with the Binary Authorization and Cloud Security Command Center
             %     teams to identify developer experience improvements.
-            \item Binary AuthorizationおよびCloud Security Command Centerチームと共に、デベロッパーエクスペリエンス改善を目的とした顧客共感ワークショッププログラムを開発・実施しました。
+            \item \budoux{Binary AuthorizationおよびCloud Security Command Centerチームと共に、デベロッパーエクスペリエンス改善を目的とした顧客共感ワークショッププログラムを開発・実施しました。}
 
             % \item Collaborated with Engineering, Product Management, and Product
             %     Marketing teams to through contributions to product strategy,
             %     documentation, online content, and supporting key customers.
-            \item エンジニアリング、プロダクトマネジメント、プロダクトマーケティングチームと協力し、製品戦略、ドキュメント、オンラインコンテンツへの貢献、主要顧客サポートを通じて連携しました。
+            \item \budoux{エンジニアリング、プロダクトマネジメント、プロダクトマーケティングチームと協力し、製品戦略、ドキュメント、オンラインコンテンツへの貢献、主要顧客サポートを通じて連携しました。}
 
             % \item Regularly presented at industry conferences including
             %     KubeCon, Open Source Summit, EuroPython, and Google Cloud Next.
-            \item KubeCon、Open Source Summit、EuroPython、Google Cloud Nextなどの業界カンファレンスで定期的に登壇しました。
+            \item \budoux{KubeCon、Open Source Summit、EuroPython、Google Cloud Nextなどの業界カンファレンスで定期的に登壇しました。}
 
         \end{itemize}
 
@@ -230,7 +230,7 @@
     % for the development of BeProud's original services, development and
     % maintenance of internal company infrastructure, as well as the development
     % of customer projects.
-    ビープラウドは、Webアプリケーションとクラウドサービスの開発を専門とする日本のソフトウェア開発会社です。自社オリジナルサービスの開発、社内インフラの開発・保守、顧客プロジェクト開発を担当しました。
+    \budoux{ビープラウドは、Webアプリケーションとクラウドサービスの開発を専門とする日本のソフトウェア開発会社です。自社サービスの開発、社内インフラの開発・保守、顧客プロジェクト開発を担当しました。}
 
     \begin{itemize}
 
@@ -240,7 +240,7 @@
             % was tech lead and responsible for conceptualization, software
             % design, architecture, implementation, and project management of the
             % service from scratch.
-            Connpassは、数十万人のユーザーと月間数千万のページビューを持つITイベント向けWebサービスです。サービスの構想策定、ソフトウェア設計、アーキテクチャ、実装、プロジェクト管理をゼロから担当しました。
+            \budoux{Connpassは、数十万人のユーザーと月間数千万のページビューを持つITイベント向けWebサービスです。サービスの構想策定、ソフトウェア設計、アーキテクチャ、実装、プロジェクト管理をゼロから担当しました。}
 
         \begin{itemize}
 
@@ -248,29 +248,29 @@
             %     platform covering an events full life cycle including event
             %     creation, promotion, registration, and post-event sharing of
             %     presentation content.\footnote{https://connpass.com/about/}
-            \item イベント作成、プロモーション、登録、イベント後のプレゼンテーションコンテンツ共有まで、イベントのライフサイクル全体をカバーするITイベントプラットフォームとしてのサービス全体コンセプトを開発しました\footnote{https://connpass.com/about/}。
+            \item \budoux{イベント作成、プロモーション、登録、イベント後のプレゼンテーションコンテンツ共有まで、イベントのライフサイクル全体をカバーするITイベントプラットフォームとしてのサービス全体コンセプトを開発しました}\footnote{https://connpass.com/about/}。
 
             % \item Led a small team of engineers and designers, designing and
             %     implementing the overall development process.
-            \item 小規模なエンジニア・デザイナーチームを率い、開発プロセス全体を設計・実装しました。
+            \item \budoux{小規模なエンジニア・デザイナーチームを率い、開発プロセス全体を設計・実装しました。}
 
             % \item Designed and implemented the service's lightweight modular
             %     frontend architecture using Backbone.js, CoffeeScript, and
             %     RequireJS.
-            \item Backbone.js, CoffeeScript, RequireJSを使用した軽量モジュラーフロントエンドアーキテクチャを設計・実装しました。
+            \item \budoux{Backbone.js, CoffeeScript, RequireJSを使用した軽量モジュラーフロントエンドアーキテクチャを設計・実装しました。}
 
             % \item Designed and implemented a unique system using Redis to cache
             %     contacts from third-party social networks and email notification
             %     system to aid in the service's organic growth.
-            \item Redisを使用してソーシャルネットワークからの連絡先をキャッシュし、メール通知システムと組み合わせることでサービスのオーガニックな成長を支援する独自のシステムを設計・実装しました。
+            \item \budoux{Redisを使用してソーシャルネットワークからの連絡先をキャッシュし、メール通知システムと組み合わせることでサービスのオーガニックな成長を支援する独自のシステムを設計・実装しました。}
 
             % \item Designed and implemented the service architecture on AWS
             %     including load balancing, caching, and database replication.
-            \item 負荷分散、キャッシング、データベースレプリケーションを含むAWS上のサービスアーキテクチャを設計・実装しました。
+            \item \budoux{負荷分散、キャッシング、データベースレプリケーションを含むAWS上のサービスアーキテクチャを設計・実装しました。}
 
             % \item Efficiently handled large load spikes as popular events were
             %     published with thousands of users concurrently registering.
-            \item 人気イベントの公開時に数千ユーザーが同時に参加登録する際に発生する、大規模な負荷スパイクを効率的に処理するシステムを構築しました。
+            \item \budoux{人気イベントの公開時に数千ユーザーが同時に参加登録する際に発生する、大規模な負荷スパイクを効率的に処理するシステムを構築しました。}
 
         \end{itemize}
 
@@ -281,27 +281,27 @@
             % of web frameworks, but also included PHP and Java. I communicated
             % directly with customers to determine their needs and provided
             % frequent updates on project status to ensure project success.
-            多数の顧客プロジェクト開発を担当し、プロジェクトは主にPythonと各種Webフレームワークを使用したが、PHPやJavaでの開発も行いました。 顧客と直接コミュニケーションを取り、ニーズを把握し、プロジェクト成功のため、頻繁に進捗状況を報告しました。
+            \budoux{多数の顧客プロジェクト開発を担当し、プロジェクトは主にPythonと各種Webフレームワークを使用したが、PHPやJavaでの開発も行いました。 顧客と直接コミュニケーションを取り、ニーズを把握し、プロジェクト成功のため、頻繁に進捗状況を報告しました。}
 
         \begin{itemize}
 
             % \item Designed and implemented a web service to categorize and
             %     filter inappropriate content using early machine learning
             %     techniques.
-            \item 初期の機械学習技術を使用した不適切コンテンツを分類・フィルタリングするWebサービスを設計・実装しました。
+            \item \budoux{初期の機械学習技術を使用した不適切コンテンツを分類・フィルタリングするWebサービスを設計・実装しました。}
 
             % \item Developed an online Q\&A recommendation, and micro-blogging
             %     service with hundreds of thousands of monthly visitors.
-            \item 月間数十万ビジターを持つオンラインQ\&A、レコメンデーション、およびマイクロブログサービスを開発しました。
+            \item \budoux{月間数十万ビジターを持つオンラインQ\&A、レコメンデーション、およびマイクロブログサービスを開発しました。}
 
             % \item Developed an E-book management and publishing system for
             %     digital book publishers covering multiple publishers,
             %     marketplaces, and book formats.
-            \item 複数の出版社、市場、書籍フォーマットを対応する電子書籍出版社向けEブック管理・出版システムを開発しました。
+            \item \budoux{複数の出版社、市場、書籍フォーマットを対応する電子書籍出版社向けEブック管理・出版システムを開発しました。}
 
             % \item Provided technical leadership and mentorship, developed
             %     company practices, and trained junior developers.
-            \item 技術的リーダーシップとメンターシップを発揮し、社内の開発標準の策定や若手開発者の育成にも貢献しました。
+            \item \budoux{技術的リーダーシップとメンターシップを発揮し、社内の開発標準の策定や若手開発者の育成にも貢献しました。}
 
         \end{itemize}
 
@@ -311,7 +311,7 @@
 
     % Think, Inc.\ is a Japanese software development company specializing in point
     % of sale systems for hair salons and pharmacies.
-        株式会社シンクは、ヘアサロンや薬局向けのPOS（Point of Sale）システムの開発を専門とする日本のソフトウェア開発会社です。
+    \budoux{株式会社シンクは、ヘアサロンや薬局向けのPOS（Point of Sale）システムの開発を専門とする日本のソフトウェア開発会社です。}
 
     \begin{itemize}
 
@@ -320,24 +320,24 @@
             % responsible for the modernization of the system's backend
             % architecture and development of new products. I managed a small team
             % of infrastructure and client application developers.
-            大規模ヘアサロン向けPOSシステムSIPSSのバックエンドアーキテクチャ近代化および新製品開発を担当し、インフラおよびクライアントアプリケーション開発者の小規模チームを管理しました。
+            \budoux{大規模ヘアサロン向けPOSシステムSIPSSのバックエンドアーキテクチャ近代化および新製品開発を担当し、インフラおよびクライアントアプリケーション開発者の小規模チームを管理しました。}
 
         \begin{itemize}
 
             % \item Designed and implemented a new mobile appointment registration
             %     system for hair salons, including mobile web client, and backend
             %     server using SOAP and PHP.\@
-            \item モバイルWebクライアント、SOAPとPHPを使用したバックエンドサーバー含む、ヘアサロン向け新規モバイル予約登録システムを設計・実装しました。
+            \item \budoux{モバイルWebクライアント、SOAPとPHPを使用したバックエンドサーバー含む、ヘアサロン向け新規モバイル予約登録システムを設計・実装しました。}
 
             % \item Proposed, and implemented a modernization of the system's
             %     backend architecture to allow single sign-on and unified
             %     customer management in PHP.\@
-            \item シングルサインオン（SSO）とPHPによる統合顧客管理を可能にするため、システムバックエンドアーキテクチャの近代化を提案・実装しました。
+            \item \budoux{シングルサインオン（SSO）とPHPによる統合顧客管理を可能にするため、システムバックエンドアーキテクチャの近代化を提案・実装しました。}
 
             % \item Designed and implemented improvements to mobile marketing
             %     including campaign tracking, and new email server with batching,
             %     throttling, and bounce processing capabilities written in Java.
-            \item キャンペーントラッキング、バッチ処理・スロットリング・バウンス処理機能を備えた新規メールサーバー（Java）を含むモバイルマーケティング改善を設計・実装しました。
+            \item \budoux{キャンペーントラッキング、バッチ処理・スロットリング・バウンス処理機能を備えた新規メールサーバー（Java）を含むモバイルマーケティング改善を設計・実装しました。}
 
         \end{itemize}
 
@@ -351,7 +351,7 @@
     % management; accounting and payment solutions; financial aid; human
     % resources; and institutional advancement. Datatel was acquired in
     % 2011 and is now known as Ellucian.
-    Datatel\footnote{2011年に買収され、現在はEllucianとして知られる}は学生登録、プログラム・学位管理、会計・決済ソリューション、学資援助、人事、教育機関支援を含む、高等教育機関向けエンタープライズソリューションの主要ソフトウェア会社です。
+    \budoux{Datatelは学生登録、プログラム・学位管理、会計・決済ソリューション、学資援助、人事、教育機関支援を含む、高等教育機関向けエンタープライズソリューションの主要ソフトウェア会社です。}\footnote{Datatelは2011年に買収され、現在はEllucianとして知られている}
 
     \begin{itemize}
 
@@ -359,24 +359,24 @@
             % Colleague is a wide-ranging enterprise system for higher education
             % institutions. I was responsible for the student payment and
             % accounting, as well as business intelligence services.
-            Colleagueは、高等教育機関向けの広範なエンタープライズシステムです。学生の支払いと会計、およびビジネスインテリジェンスサービスを担当しました。
+            \budoux{Colleagueは、高等教育機関向けの広範なエンタープライズシステムです。学生の支払いと会計、およびビジネスインテリジェンスサービスを担当しました。}
 
         \begin{itemize}
 
             % \item Improved student payments system to allow multiple payment
             %     processors which could be chosen based on the customer's
             %     business needs.
-            \item 学生支払いシステムをビジネスニーズに応じて複数の決済処理業者の選択を許可とするように改善しました。
+            \item \budoux{学生支払いシステムをビジネスニーズに応じて複数の決済処理業者の選択を許可とするように改善しました。}
 
             % \item Designed and implemented a new tax form printing system using
             %     XML:FO stylesheets allowing for greater accuracy and customizability
             %     by customers.
-            \item XML:FOスタイルシートを使用し、高精度とカスタマイズ性を可能にする新規税務フォーム印刷システムを設計・実装しました。
+            \item \budoux{XML:FOスタイルシートを使用し、高精度とカスタマイズ性を可能にする新規税務フォーム印刷システムを設計・実装しました。}
 
             % \item Designed and implemented a new business intelligence database
             %     schema format and migration tool for more intuitive reporting
             %     and tighter integration with existing BI workflows.
-            \item より直感的なレポーティングと既存のBIワークフローとの緊密な統合を実現するため、新規BIデータベーススキーマおよび移行ツールを設計・実装しました。
+            \item \budoux{より直感的なレポーティングと既存のBIワークフローとの緊密な統合を実現するため、新規BIデータベーススキーマおよび移行ツールを設計・実装しました。}
 
         \end{itemize}
 
@@ -397,7 +397,7 @@
     % responsible for event planning, recruiting speakers, and serve as MC for
     % most events. I recruited and mentored a self-sustaining group of lead
     % organizers and fully handed it off in 2020.
-    2016年にKubernetes Meetup Tokyo\footnote{https://k8sjp.connpass.com/}を設立し、オーガナイザーとして7,700人以上の規模にまで成長させました。後任となるオーガナイザーチームを育成・指導し、2020年に運営を完全に引き継ぎました。
+    \budoux{2016年にKubernetes Meetup Tokyoを設立し、オーガナイザーとして7,700人以上の規模にまで成長させました。後任となるオーガナイザーチームを育成・指導し、2020年に運営を完全に引き継ぎました。}\footnote{https://k8sjp.connpass.com/}
 
     \item \textbf{\large PyCon JP} (2011年--2019年)
 
@@ -410,7 +410,7 @@
     % international liaison. As media lead, I was responsible for the public
     % website and infrastructure, attendee registration, event promotion, CFP, and
     % speaker recruitment.
-    2011年に日本最大のPythonカンファレンスであるPyCon JP\footnote{https://www.pycon.jp/}を共同設立し、2013年の設立から2019年までPyCon JP NPO法人の副理事長を務めました。理事会メンバーとして、カンファレンスの全体的な方向性、企業スポンサーの募集、予算と財務の管理を担当しました。2010年から2014年までメディアリードおよび国際リエゾンを務め、公開ウェブサイトとインフラストラクチャ、参加者登録、イベントプロモーション、CFP、スピーカー募集を担当しました。
+    \budoux{2011年に日本最大のPythonカンファレンスであるPyCon JPを共同設立し、2013年の設立から2019年までPyCon JP NPO法人の副理事長を務めました。理事会メンバーとして、カンファレンスの全体的な方向性、企業スポンサーの募集、予算と財務の管理を担当しました。2010年から2014年までメディアリードおよび国際リエゾンを務め、公開ウェブサイトとインフラストラクチャ、参加者登録、イベントプロモーション、CFP、スピーカー募集を担当しました。}\footnote{https://www.pycon.jp/}
 
     \item \textbf{\large Google App Engine デベロッパーエキスパート (GDE)}
         (2010年--2014年)
@@ -420,8 +420,7 @@
     % the Japanese Google App Engine Python community. I focused on developer
     % education efforts, holding workshops and meetups to share knowledge on
     % Python programming and Google App Engine.
-    日本のGoogle App Engine Pythonコミュニティに貢献する、わずか2名の公式Google App Engineデベロッパーエキスパート\footnote{https://developers.google.com/community/experts}の1人を務めました。PythonプログラミングとGoogle
-    App Engineに関する知識を共有するためのワークショップ・勉強会の開催など、開発者教育活動に注力しました。
+    \budoux{日本のGoogle App Engine Pythonコミュニティに貢献する、わずか2名の公式Google App Engineデベロッパーエキスパートの1人を務めました。PythonプログラミングとGoogle App Engineに関する知識を共有するためのワークショップ・勉強会の開催など、開発者教育活動に注力しました。}\footnote{https://developers.google.com/community/experts}
 
 \end{list}
 
