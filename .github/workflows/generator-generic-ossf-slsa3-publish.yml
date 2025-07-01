@@ -51,21 +51,32 @@ jobs:
       # Step 1: Build your artifacts.
       #
       # ========================================================
-      - name: Build PDF
+      - name: Install lualatex
         env:
-          DOCKER_IMAGE: ghcr.io/ianlewis/texlive-lualatex
-          # renovate: datasource=docker depName=ghcr.io/ianlewis/texlive-lualatex versioning=loose
-          DOCKER_IMAGE_VERSION: v1.0.0@sha256:32a9406f179addc78c6953920dd131238f0a69a5b0cc5aee0d4fc69e1098ffda
+          TEXLIVE_BASE_VERSION: "2023.20240207-1"
+          TEXLIVE_EXTRA_VERSION: "2023.20240207-1"
+          TEXLIVE_LANG_VERSION: "2023.20240207-1"
         run: |
-          set -euo pipefail
-          for f in Ian_M_Lewis_Resume.tex Ian_M_Lewis_Resume.ja.tex; do
-            docker run  \
-              --rm \
-              -v "${GITHUB_WORKSPACE}:/work" \
-              -w /work \
-              "${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}" \
-              lualatex -file-line-error -halt-on-error "$f"
-          done
+          sudo apt-get update
+          sudo apt-get install -y \
+            --no-install-recommends \
+            texlive-latex-base="${TEXLIVE_BASE_VERSION}" \
+            texlive-pictures="${TEXLIVE_BASE_VERSION}" \
+            texlive-luatex="${TEXLIVE_BASE_VERSION}" \
+            texlive-xetex="${TEXLIVE_BASE_VERSION}" \
+            texlive-latex-extra="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-fonts-extra="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-formats-extra="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-pstricks="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-games="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-music="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-publishers="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-humanities="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-science="${TEXLIVE_EXTRA_VERSION}" \
+            texlive-lang-all="${TEXLIVE_LANG_VERSION}"
+
+      - name: Build PDF
+        run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
 
       # ========================================================
       #
