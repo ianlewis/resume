@@ -28,6 +28,8 @@ rules:
       - "BeProud"
       - "Datatel" # Higher education software company
       - "Ellucian" # Higher education software company
+      - "Gijutsu" # Gijutsu Hyoronsha, Japanese publisher
+      - "Hyoronsha" # Gijutsu Hyoronsha, Japanese publisher
 
       # Place names
       - "Fairfax" # Fairfax, Virginia
