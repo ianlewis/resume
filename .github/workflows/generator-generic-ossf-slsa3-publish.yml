@@ -34,6 +34,7 @@ permissions: {}
 
 jobs:
   build:
+    name: Build artifacts and generate SLSA provenance
     runs-on: ubuntu-latest
     permissions:
       contents: write # To upload to the release.

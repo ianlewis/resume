@@ -21,6 +21,7 @@ permissions:
 
 jobs:
   chktex:
+    name: chktex
     runs-on: ubuntu-latest
     permissions:
       contents: read
