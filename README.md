@@ -1,6 +1,6 @@
 # resume
 
-[![tests](https://github.com/ianlewis/resume/actions/workflows/pre-submit.units.yml/badge.svg)](https://github.com/ianlewis/resume/actions/workflows/pre-submit.units.yml)
+[![tests](https://github.com/ianlewis/resume/actions/workflows/pull_request.tests.yml/badge.svg)](https://github.com/ianlewis/resume/actions/workflows/pull_request.tests.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ianlewis/resume/badge)](https://securityscorecards.dev/viewer/?uri=github.com%2Fianlewis%2Fresume)
 
 My resume is written in LaTeX.
