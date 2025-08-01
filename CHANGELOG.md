@@ -5,7 +5,7 @@ All notable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [CalVer](https://calver.org/).
 
-## [Unreleased]
+## [2025.08.01]
 
 - Fix typo in Kubernetes Meetup section of Japanese translation
   ([#107](https://github.com/ianlewis/resume/pull/107))
@@ -29,6 +29,7 @@ and this project adheres to [CalVer](https://calver.org/).
 
 - Initial release
 
+[2025.08.01]: https://github.com/ianlewis/resume/releases/tag/2025.08.01
 [2025.07.01]: https://github.com/ianlewis/resume/releases/tag/2025.07.01
 [2025.04.27]: https://github.com/ianlewis/resume/releases/tag/2025.04.27
 [2025.04.21]: https://github.com/ianlewis/resume/releases/tag/2025.04.21
