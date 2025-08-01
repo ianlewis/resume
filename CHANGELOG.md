@@ -5,6 +5,11 @@ All notable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [CalVer](https://calver.org/).
 
+## [Unreleased]
+
+- Fix typo in Kubernetes Meetup section of Japanese translation
+  ([#106](https://github.com/ianlewis/resume/pull/106))
+
 ## [2025.07.01]
 
 - Added a publications section ([#81](https://github.com/ianlewis/resume/pull/81))
