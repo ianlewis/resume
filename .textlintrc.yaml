@@ -25,11 +25,15 @@ rules:
     language: "en"
     skipPatterns:
       # Company names
-      - "BeProud"
+      - "BeProud" # Japanese IT company
+      - "CyberAgent" # Japanese internet company
       - "Datatel" # Higher education software company
+      - "DeNA" # Japanese mobile gaming company
+      - "Navi" # EC Navi, Japanese company
       - "Ellucian" # Higher education software company
       - "Gijutsu" # Gijutsu Hyoronsha, Japanese publisher
       - "Hyoronsha" # Gijutsu Hyoronsha, Japanese publisher
+      - "Rakuten" # Japanese e-commerce company
 
       # Place names
       - "Fairfax" # Fairfax, Virginia
