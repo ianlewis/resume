@@ -8,7 +8,10 @@ and this project adheres to [CalVer](https://calver.org/).
 ## [Unreleased]
 
 - Fix typo in Kubernetes Meetup section of Japanese translation
-  ([#106](https://github.com/ianlewis/resume/pull/106))
+  ([#107](https://github.com/ianlewis/resume/pull/107))
+- Added an example customer list to the BeProud section
+  ([#108](https://github.com/ianlewis/resume/pull/108))
+- Fix various typos and grammar mistakes in the English translation.
 
 ## [2025.07.01]
 
