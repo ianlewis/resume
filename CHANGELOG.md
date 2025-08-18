@@ -5,6 +5,11 @@ All notable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [CalVer](https://calver.org/).
 
+## Unreleased
+
+- Added creation date to the resume header
+  ([#112](https://github.com/ianlewis/resume/issues/112))
+
 ## [2025.08.01]
 
 - Fix typo in Kubernetes Meetup section of Japanese translation
