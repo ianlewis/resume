@@ -10,7 +10,7 @@ My resume is written in LaTeX.
 - `lualatex`: For generating the PDF.
 - `chktex`: For linting Latex files.
 
-You can install these dependencies on Ubuntu with the following commands:
+You can install these dependencies on Debian/Ubuntu with the following commands:
 
 ```bash
 TEXLIVE_BASE_VERSION="2023.20240207-1"
@@ -21,19 +21,9 @@ sudo apt-get install -y chktex
 sudo apt-get install -y \
     --no-install-recommends \
     texlive-latex-base="${TEXLIVE_BASE_VERSION}" \
-    texlive-pictures="${TEXLIVE_BASE_VERSION}" \
     texlive-luatex="${TEXLIVE_BASE_VERSION}" \
-    texlive-xetex="${TEXLIVE_BASE_VERSION}" \
     texlive-latex-extra="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-fonts-extra="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-formats-extra="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-pstricks="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-games="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-music="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-publishers="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-humanities="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-science="${TEXLIVE_EXTRA_VERSION}" \
-    texlive-lang-all="${TEXLIVE_LANG_VERSION}"
+    texlive-lang-japanese"${TEXLIVE_LANG_VERSION}"
 ```
 
 ## Build resume PDF
