@@ -25,97 +25,103 @@ rules:
     language: "en"
     skipPatterns:
       # Company names
-      - "BeProud" # Japanese IT company
-      - "CyberAgent" # Japanese internet company
-      - "Datatel" # Higher education software company
-      - "DeNA" # Japanese mobile gaming company
-      - "Navi" # EC Navi, Japanese company
-      - "Ellucian" # Higher education software company
-      - "Gijutsu" # Gijutsu Hyoronsha, Japanese publisher
-      - "Hyoronsha" # Gijutsu Hyoronsha, Japanese publisher
-      - "Rakuten" # Japanese e-commerce company
+      - "/\\bBeProud\\b/g" # Japanese IT company
+      - "/\\bCyberAgent\\b/g" # Japanese internet company
+      - "/\\bDatatel\\b/g" # Higher education software company
+      - "/\\bDeNA\\b/g" # Japanese mobile gaming company
+      - "/\\bNavi\\b/g" # EC Navi, Japanese company
+      - "/\\bEllucian\\b/g" # Higher education software company
+      - "/\\bGijutsu\\b/g" # Gijutsu Hyoronsha, Japanese publisher
+      - "/\\bHyoronsha\\b/g" # Gijutsu Hyoronsha, Japanese publisher
+      - "/\\bRakuten\\b/g" # Japanese e-commerce company
 
       # Place names
-      - "Fairfax" # Fairfax, Virginia
-      - "Bridgewater" # Bridgewater, Virginia
+      - "/\\bFairfax\\b/g" # Fairfax, Virginia
+      - "/\\bBridgewater\\b/g" # Bridgewater, Virginia
 
       # Event names
-      - "KubeCon" # Kubernetes conference
-      - "EuroPython" # European Python conference
-      - "PyCon" # Python conference
+      - "/\\bKubeCon\\b/g" # Kubernetes conference
+      - "/\\bEuroPython\\b/g" # European Python conference
+      - "/\\bPyCon\\b/g" # Python conference
 
       # OSS projects/technologies
-      - "Backbone.js" # JavaScript framework
-      - "CoffeeScript" # JavaScript dialect
-      - "Containerd" # Container runtime
-      - "Knative" # Kubernetes-native serverless framework
-      - "Kubernetes" # Container orchestration platform
-      - "Netlink" # Network management for Linux
-      - "RequireJS" # JavaScript module loader
-      - "Seccomp" # Linux kernel security module
-      - "Sigstore" # OpenSSF Sigstore project
-      - "gVisor" # Google Cloud gVisor project
-      - "minikube" # Lightweight Kubernetes cluster
-      - "procfs" # Linux kernel proc filesystem
+      - "/\\bBackbone.js\\b/g" # JavaScript framework
+      - "/\\bCoffeeScript\\b/g" # JavaScript dialect
+      - "/\\bContainerd\\b/g" # Container runtime
+      - "/\\bKnative\\b/g" # Kubernetes-native serverless framework
+      - "/\\bKubernetes\\b/g" # Container orchestration platform
+      - "/\\bNetlink\\b/g" # Network management for Linux
+      - "/\\bRequireJS\\b/g" # JavaScript module loader
+      - "/\\bSeccomp\\b/g" # Linux kernel security module
+      - "/\\bSigstore\\b/g" # OpenSSF Sigstore project
+      - "/\\bgVisor\\b/g" # Google Cloud gVisor project
+      - "/\\bminikube\\b/g" # Lightweight Kubernetes cluster
+      - "/\\bprocfs\\b/g" # Linux kernel proc filesystem
 
       # Product names
-      - "Bigtable" # Google Cloud Bigtable
-      - "Connpass" # Event management platform
-      - "SIPSS" # Point of Sale Software
-      - "npm" # Node Package Manager
+      - "/\\bBigtable\\b/g" # Google Cloud Bigtable
+      - "/\\bConnpass\\b/g" # Event management platform
+      - "/\\bSIPSS\\b/g" # Point of Sale Software
+      - "/\\bnpm\\b/g" # Node Package Manager
 
       # Acronyms
-      - "ABI" # Application Binary Interface
-      - "API" # Application Programming Interface
-      - "BPF" # Berkeley Packet Filter
-      - "CFP" # Call for Papers
-      - "GDE" # Google Developer Expert
-      - "GKE" # Google Kubernetes Engine
-      - "NPO" # Non-Profit Organization
-      - "OCI" # Open Container Initiative
-      - "POS" # Point of Sale
-      - "SLSA" # Supply Chain Levels for Software Artifacts
-      - "SSO" # Single Sign-On
-      - "XML:FO" # XML Formatting Objects
+      - "/\\bABI\\b/g" # Application Binary Interface
+      - "/\\bAPIs?\\b/g" # Application Programming Interface
+      - "/\\bBPF\\b/g" # Berkeley Packet Filter
+      - "/\\bCFP\\b/g" # Call for Papers
+      - "/\\bGDE\\b/g" # Google Developer Expert
+      - "/\\bGKE\\b/g" # Google Kubernetes Engine
+      - "/\\bNPO\\b/g" # Non-Profit Organization
+      - "/\\bOCI\\b/g" # Open Container Initiative
+      - "/\\bPOS\\b/g" # Point of Sale
+      - "/\\bSLSA\\b/g" # Supply Chain Levels for Software Artifacts
+      - "/\\bSSO\\b/g" # Single Sign-On
+      - "/\\bXML:FO\\b/g" # XML Formatting Objects
 
       # Technical terms
-      - "CalVer" # Calendar Versioning
-      - "/[Aa]ddon/"
-      - "/[Bb]ackend/"
-      - "/[Cc]ustomizability/"
-      - "/[Ff]rontend/"
-      - "/[Ss]tylesheet/"
-      - "/[Uu]ntrusted/"
+      - "/\\bCalVer\\b/g" # Calendar Versioning
+      - "/\\bRuntimeClass\\b/g" # Kubernetes RuntimeClass
+      - "/\\b[Aa]ddon\\b/g"
+      - "/\\b[Bb]ackend\\b/g"
+      - "/\\b[Cc]ustomizability\\b/g"
+      - "/\\b[Ff]rontend\\b/g"
+      - "/\\b[Ss]tylesheet\\b/g"
+      - "/\\b[Uu]ntrusted\\b/g"
 
-      - "CHANGELOG"
-      - "CODEOWNER"
-      - "CLI"
-      - "CVSS"
-      - "DCO"
-      - "PR"
-      - "UI"
-      - "YAML"
-      - "Changelog"
-      - "CodeQL"
-      - "Dependabot"
-      - "JavaScript"
-      - "MacOS"
-      - "Makefile"
-      - "Node.js"
-      - "OpenSSF"
-      - "TODO"
-      - "e2e"
-      - "/[Ff]ormatter/"
-      - "/[Ll]inter/"
-      - "/[Pp]re/"
-      - "/[Rr]eproducibility/"
-      - "/[Rr]uleset/"
-      - "/[Rr]untime/"
-      - "/[Ss]exualized/"
-      - "/[Ss]ocio-economic/"
-      - "/[Uu]serspace/"
-      - "/[Vv]endored/"
-      - "/[Vv]irtualenv/"
-      - "/v[0-9]+/"
-      - "/[0-9]+/"
+      - "/\\bAMD64\\b/g"
+      - "/\\bARM64\\b/g"
+      - "/\\b(CHANGELOG|Changelog)\\b/g"
+      - "/\\bCODEOWNER\\b/g"
+      - "/\\bCLA\\b/g"
+      - "/\\bCLI\\b/g"
+      - "/\\bCVSS\\b/g"
+      - "/\\bDCO\\b/g"
+      - "/\\bPRs?\\b/g"
+      - "/\\bUI\\b/g"
+      - "/\\bYAML\\b/g"
+      - "/\\bCodeQL\\b/g"
+      - "/\\bDependabot\\b/g"
+      - "/\\bHomebrew\\b/g"
+      - "/\\bJavaScript\\b/g"
+      - "/\\bMakefile\\b/g"
+      - "/\\bNode.js\\b/g"
+      - "/\\bOpenSSF\\b/g"
+      - "/\\bTODOs?\\b/g"
+      - "/\\be2e\\b/g"
+      - "/\\bmacOS\\b/g"
+      - "/\\bx86-64\\b/g"
+      - "/\\b[Ff]ormatters?\\b/g"
+      - "/\\b[Ll]inters?\\b/g"
+      - "/\\b[Pp]ositivity\\b/g"
+      - "/\\b[Pp]re\\b/g"
+      - "/\\b[Rr]ebase\\b/g"
+      - "/\\b[Rr]eproducibility\\b/g"
+      - "/\\b[Rr]ulesets?\\b/g"
+      - "/\\b[Rr]untimes?\\b/g"
+      - "/\\b[Ss]exualized\\b/g"
+      - "/\\b[Ss]ocio-economic\\b/g"
+      - "/\\b[Uu]serspace\\b/g"
+      - "/\\b[Vv]endored\\b/g"
+      - "/\\b[Vv]irtualenv\\b/g"
+      - "/\\bv?[0-9]+\\b/g"
       - ":white_check_mark:"

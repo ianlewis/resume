@@ -19,13 +19,17 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: zizmor-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   zizmor:
     name: zizmor
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      security-events: write
+      contents: read # Needed for private repositories.
+      security-events: write # Needed to upload SARIF results.
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
@@ -36,12 +40,13 @@ jobs:
         with:
           python-version-file: ".python-version"
 
-      - run: make zizmor
+      - name: zizmor
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make zizmor
 
       - name: Upload artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           name: SARIF file
           path: results.sarif
@@ -49,9 +54,7 @@ jobs:
 
       - name: Upload to code-scanning
         # NOTE: Uploading SARIF requires GitHub Enterprise and GitHub Advanced Security license for private repositories.
-        # TODO: Remove the next line for private repositories with GitHub Advanced Security.
-        if: github.event.repository.private == false
-        uses: github/codeql-action/upload-sarif@3599b3baa15b485a2e49ef411a7a4bb2452e7f93 # v3.30.5
+        uses: github/codeql-action/upload-sarif@0499de31b99561a6d14a36a5f662c2a54f91beee # v4.31.2
         with:
           sarif_file: zizmor.sarif.json
           category: zizmor
