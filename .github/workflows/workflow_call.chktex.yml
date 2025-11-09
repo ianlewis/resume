@@ -19,6 +19,10 @@ on:
 permissions:
   contents: read # Needed to check out the repo.
 
+concurrency:
+  group: chktex-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   chktex:
     name: chktex
@@ -29,7 +33,13 @@ jobs:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - run: |
+
+      - name: install chktex
+        run: |
           sudo apt-get update
           sudo apt-get install -y chktex
-      - run: make chktex
+
+      - name: chktex
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make chktex
