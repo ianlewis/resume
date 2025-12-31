@@ -5,7 +5,7 @@ All notable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [CalVer](https://calver.org/).
 
-## [2025.12.31]
+## [2026.01.01]
 
 - Added creation date to the resume header
   ([#112](https://github.com/ianlewis/resume/issues/112))
@@ -36,7 +36,7 @@ and this project adheres to [CalVer](https://calver.org/).
 
 - Initial release
 
-[2025.12.31]: https://github.com/ianlewis/resume/releases/tag/2025.12.31
+[2026.01.01]: https://github.com/ianlewis/resume/releases/tag/2025.01.01
 [2025.08.01]: https://github.com/ianlewis/resume/releases/tag/2025.08.01
 [2025.07.01]: https://github.com/ianlewis/resume/releases/tag/2025.07.01
 [2025.04.27]: https://github.com/ianlewis/resume/releases/tag/2025.04.27
