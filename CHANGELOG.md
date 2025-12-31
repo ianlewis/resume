@@ -9,6 +9,8 @@ and this project adheres to [CalVer](https://calver.org/).
 
 - Added creation date to the resume header
   ([#112](https://github.com/ianlewis/resume/issues/112))
+- Added J.TEST certification to the resume header
+  ([#133](https://github.com/ianlewis/resume/issues/133))
 
 ## [2025.08.01]
 
