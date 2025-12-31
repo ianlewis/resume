@@ -27,8 +27,7 @@ name: SLSA generic generator
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  create: # tag or branch creation.
 
 permissions: {}
 
@@ -39,11 +38,10 @@ concurrency:
 jobs:
   build:
     name: Build artifacts and generate SLSA provenance
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write # To upload to the release.
-    outputs:
-      digests: ${{ steps.hash.outputs.digests }}
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -83,36 +81,12 @@ jobs:
       - name: Build PDF
         run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
 
-      # ========================================================
-      #
-      # Step 2: Add a step to generate the provenance subjects
-      #         as shown below. Update the sha256 sum arguments
-      #         to include all binaries that you generate
-      #         provenance for.
-      #
-      # ========================================================
-      - name: Generate subject for provenance
-        id: hash
-        run: |
-          set -euo pipefail
-
-          # Generate the subjects (base64 encoded).
-          echo "digests=$(sha256sum Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf | base64 -w0)" >> "${GITHUB_OUTPUT}"
-
       - name: Upload artifact
         uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2.3.3
         with:
+          # Create a draft release to allow uploading assets and editing of
+          # release notes before publishing.
+          draft: true
           files: |
             Ian_M_Lewis_Resume.pdf
             Ian_M_Lewis_Resume.ja.pdf
-
-  provenance:
-    needs: [build]
-    permissions:
-      actions: read # To read the workflow path.
-      id-token: write # To sign the provenance.
-      contents: write # To add assets to a release.
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.1.0
-    with:
-      base64-subjects: "${{ needs.build.outputs.digests }}"
-      upload-assets: true # Optional: Upload to a new release
