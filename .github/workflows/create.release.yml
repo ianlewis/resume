@@ -23,11 +23,12 @@
 # The provenance file can be verified using https://github.com/slsa-framework/slsa-verifier.
 # For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
 
-name: SLSA generic generator
+name: Create Release
 
 on:
-  workflow_dispatch:
-  create: # tag or branch creation.
+  push:
+    tags:
+      - "*.*.*" # CalVer tags like 2026.01.01
 
 permissions: {}
 
@@ -37,8 +38,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build artifacts and generate SLSA provenance
-    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    name: Build artifacts and create draft release
     runs-on: ubuntu-latest
     permissions:
       contents: write # To upload to the release.
@@ -64,19 +64,9 @@ jobs:
           sudo apt-get install -y \
             --no-install-recommends \
             texlive-latex-base="${TEXLIVE_BASE_VERSION}" \
-            texlive-pictures="${TEXLIVE_BASE_VERSION}" \
             texlive-luatex="${TEXLIVE_BASE_VERSION}" \
-            texlive-xetex="${TEXLIVE_BASE_VERSION}" \
             texlive-latex-extra="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-fonts-extra="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-formats-extra="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-pstricks="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-games="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-music="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-publishers="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-humanities="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-science="${TEXLIVE_EXTRA_VERSION}" \
-            texlive-lang-all="${TEXLIVE_LANG_VERSION}"
+            texlive-lang-japanese"${TEXLIVE_LANG_VERSION}"
 
       - name: Build PDF
         run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
