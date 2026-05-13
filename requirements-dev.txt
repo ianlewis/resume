@@ -102,6 +102,6 @@ PyYAML==6.0.3 \
 budoux==0.7.0 \
     --hash=sha256:1cb6f4ba1b5b100883147c1fb16ceacdb3d09adf077c82421788c2e170f792ba \
     --hash=sha256:c71f777bf49dd8bffe5fe8234e18a02a7bcbbbbdf60f7c42cefb457e5f87ea05
-importlib-resources==6.5.2 \
-    --hash=sha256:185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c \
-    --hash=sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec
+importlib-resources==7.1.0 \
+    --hash=sha256:0722d4c6212489c530f2a145a34c0a7a3b4721bc96a15fada5930e2a0b760708 \
+    --hash=sha256:1bd7b48b4088eddb2cd16382150bb515af0bd2c70128194392725f82ad2c96a1
