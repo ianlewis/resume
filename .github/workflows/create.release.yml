@@ -44,7 +44,7 @@ jobs:
       contents: write # To upload to the release.
 
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           submodules: true
           persist-credentials: false
@@ -72,7 +72,7 @@ jobs:
         run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
 
       - name: Upload artifact
-        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
         with:
           # Create a draft release to allow uploading assets and editing of
           # release notes before publishing.
