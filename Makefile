@@ -133,19 +133,21 @@ $(AQUA_ROOT_DIR)/.installed: .aqua.yaml $(AQUA_ROOT_DIR)/.$(AQUA_VERSION).instal
 all: test Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf ## Build everything.
 
 Ian_M_Lewis_Resume.pdf: Ian_M_Lewis_Resume.tex ## Create resume PDF
-	@lualatex \
+	@echo "Building $@..."
+	lualatex \
 		--file-line-error \
 		--halt-on-error \
 		$<
 
 Ian_M_Lewis_Resume.ja.pdf: Ian_M_Lewis_Resume.ja.tex .venv/.installed ## Create resume PDF
-	@set -euo pipefail; \
-		PATH="$(REPO_ROOT)/.venv/bin:$${PATH}"; \
-		lualatex \
-			--file-line-error \
-			--halt-on-error \
-			--shell-escape \
-			$<
+	@echo "Building $@..."
+	PATH="$(MAKEFILE_ROOT)/.venv/bin:$${PATH}"
+	lualatex \
+		--file-line-error \
+		--halt-on-error \
+		--shell-escape \
+		$<
+
 ## Testing
 #####################################################################
 
