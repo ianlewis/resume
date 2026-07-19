@@ -71,12 +71,17 @@ jobs:
       - name: Build PDF
         run: make Ian_M_Lewis_Resume.pdf Ian_M_Lewis_Resume.ja.pdf
 
-      - name: Upload artifact
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
-        with:
-          # Create a draft release to allow uploading assets and editing of
-          # release notes before publishing.
-          draft: true
-          files: |
-            Ian_M_Lewis_Resume.pdf
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create a draft release to allow editing of release notes before
+          # publishing.
+          gh release create "${GITHUB_REF#refs/tags/}" \
+            --title "${GITHUB_REF#refs/tags/}" \
+            --notes "Release ${GITHUB_REF#refs/tags/}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --draft \
+            --verify-tag \
+            Ian_M_Lewis_Resume.pdf \
             Ian_M_Lewis_Resume.ja.pdf
