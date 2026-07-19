@@ -39,7 +39,8 @@ DEBUG_LOGGING ?=
 # https://docs.github.com/en/actions/reference/workflows-and-actions/variables
 GITHUB_ACTIONS ?=
 
-# The RUNNER_DEBUG evironment variable is set to '1' when debug mode is enabled.
+# The RUNNER_DEBUG environment variable is set to '1' when debug mode is
+# enabled.
 # https://docs.github.com/en/actions/reference/workflows-and-actions/variables
 RUNNER_DEBUG ?=
 
