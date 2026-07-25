@@ -16,7 +16,6 @@ include include.mk
 
 # renovate: datasource=github-releases depName=aquaproj/aqua versioning=loose
 AQUA_VERSION ?= v2.60.1
-AQUA_REPO := github.com/aquaproj/aqua
 export AQUA_ROOT_DIR = $(MAKEFILE_ROOT)/.aqua
 
 # Ensure that aqua and aqua installed tools are in the PATH.
