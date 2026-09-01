@@ -15,7 +15,7 @@ include = []
 
 [dependency-groups]
 dev = [
-    "budoux==0.8.4",
+    "budoux==0.9.0",
     "yamllint==1.38.0",
-    "zizmor==1.26.1",
+    "zizmor==1.29.0",
 ]
